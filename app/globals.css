@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Katana "Premium" Palette - Scanned from Source */
+  --background: #3b413c;
+  /* Charcoal Brown */
+  --foreground: #ffffff;
+  /* White */
+
+  --primary: #daf0ee;
+  /* Light Cyan */
+  --primary-invert: #3b413c;
+  /* Dark text on Primary */
+
+  --secondary: #9db5b2;
+  /* Ash Grey */
+
+  --accent: #daf0ee;
+  /* Light Cyan */
+
+  --surface: #3b413c;
+  --surface-glass: rgba(59, 65, 60, 0.85);
+
+  --border-subtle: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-invert: var(--primary-invert);
+
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-surface: var(--surface);
+
+  --font-sans: var(--font-inter);
+
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Utilities */
+.glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.shadow-premium {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Dark Mode Preference (Apple typically works well in both, but let's stick to Light/Clean for now unless specified) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #f5f5f7;
+    --primary: #ffffff;
+    --primary-invert: #000000;
+    --secondary: #1c1c1e;
+    --surface: #000000;
+    --surface-glass: rgba(20, 20, 20, 0.85);
+    --border-subtle: #333333;
+  }
 }
