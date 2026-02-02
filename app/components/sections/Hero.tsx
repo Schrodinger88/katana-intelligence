@@ -45,7 +45,7 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Link href="https://calendly.com" target="_blank">
+                    <Link href="https://cal.com/erwin-peter/30min" target="_blank">
                         <Button variant="primary" className="h-14 px-10 text-lg rounded-full">
                             Book a Strategy Call
                         </Button>
