@@ -70,7 +70,7 @@ export default function Navbar() {
 
                     {/* CTA & Mobile Toggle */}
                     <div className="flex items-center gap-2">
-                        <Link href="https://cal.com/erwin-peter/30min" target="_blank" className="hidden md:block">
+                        <Link href="https://calendly.com" target="_blank" className="hidden md:block">
                             <Button variant="primary" className="h-9 px-4 text-xs rounded-full">
                                 Book a Call
                             </Button>
@@ -105,7 +105,7 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link href="https://cal.com/erwin-peter/30min" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="https://calendly.com" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
                             <Button variant="primary" className="w-full">
                                 Book a Call
                             </Button>
