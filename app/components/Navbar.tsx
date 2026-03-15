@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -10,6 +10,9 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Process", href: "#process" },
+    { name: "Results", href: "#results" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -17,10 +20,6 @@ export default function Navbar() {
     const { scrollY } = useScroll();
     const [lastY, setLastY] = useState(0);
 
-    // Dynamic "Avoidance" / Smart Hide
-    // If scrolling DOWN, hide navbar (get out of the way).
-    // If scrolling UP, show navbar.
-    // Unless at the very top.
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = lastY;
         if (latest > previous && latest > 150) {
@@ -42,12 +41,12 @@ export default function Navbar() {
                         hidden: { y: -100, opacity: 0, scale: 0.9 }
                     }}
                     animate={hidden ? "hidden" : "visible"}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} // Apple-like easing
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     className={cn(
                         "pointer-events-auto",
                         "bg-surface-glass backdrop-blur-xl border border-white/20 shadow-premium",
                         "rounded-full px-6 py-3 flex items-center justify-between gap-8 h-14",
-                        "min-w-[320px] max-w-[90vw] md:min-w-[500px]"
+                        "min-w-[320px] max-w-[90vw] md:min-w-[600px]"
                     )}
                 >
                     {/* Logo */}
@@ -70,7 +69,7 @@ export default function Navbar() {
 
                     {/* CTA & Mobile Toggle */}
                     <div className="flex items-center gap-2">
-                        <Link href="https://calendly.com" target="_blank" className="hidden md:block">
+                        <Link href="https://cal.com" target="_blank" className="hidden md:block">
                             <Button variant="primary" className="h-9 px-4 text-xs rounded-full">
                                 Book a Call
                             </Button>
@@ -93,20 +92,20 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        className="fixed inset-x-4 top-24 z-40 bg-surface rounded-3xl p-6 shadow-2xl border border-black/5 flex flex-col gap-4 md:hidden"
+                        className="fixed inset-x-4 top-24 z-40 bg-surface rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col gap-4 md:hidden"
                     >
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-lg font-medium text-foreground p-2 rounded-xl hover:bg-secondary"
+                                className="text-lg font-medium text-foreground p-2 rounded-xl hover:bg-secondary transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Link href="https://calendly.com" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
-                            <Button variant="primary" className="w-full">
+                        <Link href="https://cal.com" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
+                            <Button variant="primary" className="w-full rounded-full">
                                 Book a Call
                             </Button>
                         </Link>

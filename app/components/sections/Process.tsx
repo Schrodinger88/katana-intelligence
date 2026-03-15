@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 const steps = [
     {
         id: "01",
-        title: "Audit",
-        description: "We map your operational DNA to find inefficiencies."
+        title: "Discovery Call",
+        description: "We learn your business inside-out — your bottlenecks, goals, and what's eating your time."
     },
     {
         id: "02",
-        title: "Architect",
-        description: "Designing the neural pathways of your new workflow."
+        title: "Strategy & Design",
+        description: "We architect the perfect automation stack and design your systems before building anything."
     },
     {
         id: "03",
-        title: "Deploy",
-        description: "Seamless integration of agents into your slack/teams."
+        title: "Build & Deploy",
+        description: "We build, test, and seamlessly integrate everything into your existing workflow."
     },
     {
         id: "04",
-        title: "Scale",
-        description: "Feedback loops that improve system performance over time."
+        title: "Optimize & Scale",
+        description: "Continuous improvements based on real data. Your systems get smarter over time."
     }
 ];
 
@@ -31,10 +31,10 @@ export default function Process() {
             <div className="container mx-auto px-6">
                 <div className="max-w-2xl mb-24">
                     <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
-                        The Protocol.
+                        How it works.
                     </h2>
                     <p className="text-xl text-foreground/60">
-                        A rigorous framework for digital transformation.
+                        A simple, proven process to get you from overwhelmed to automated.
                     </p>
                 </div>
 
@@ -52,7 +52,7 @@ export default function Process() {
                             transition={{ delay: index * 0.2 }}
                             className="relative p-6 pt-12"
                         >
-                            <div className="w-4 h-4 rounded-full bg-foreground absolute top-6 left-6 md:left-0 md:-translate-y-1/2 md:translate-x-0 hidden md:block ring-4 ring-background" />
+                            <div className="w-4 h-4 rounded-full bg-primary absolute top-6 left-6 md:left-0 md:-translate-y-1/2 md:translate-x-0 hidden md:block ring-4 ring-background" />
 
                             <span className="text-sm font-bold text-foreground/30 mb-4 block tracking-wider">
                                 {step.id}
