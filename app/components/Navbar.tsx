@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Process", href: "#process" },
-    { name: "Results", href: "#results" },
     { name: "Pricing", href: "#pricing" },
     { name: "FAQ", href: "#faq" },
 ];
@@ -69,7 +68,7 @@ export default function Navbar() {
 
                     {/* CTA & Mobile Toggle */}
                     <div className="flex items-center gap-2">
-                        <Link href="https://cal.com" target="_blank" className="hidden md:block">
+                        <Link href="https://cal.com/erwin-peter/30min" target="_blank" className="hidden md:block">
                             <Button variant="primary" className="h-9 px-4 text-xs rounded-full">
                                 Book a Call
                             </Button>
@@ -104,7 +103,7 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link href="https://cal.com" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="https://cal.com/erwin-peter/30min" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
                             <Button variant="primary" className="w-full rounded-full">
                                 Book a Call
                             </Button>

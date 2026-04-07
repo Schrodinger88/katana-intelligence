@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
     return (
@@ -45,7 +45,7 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Link href="https://cal.com" target="_blank">
+                    <Link href="https://cal.com/erwin-peter/30min" target="_blank">
                         <Button variant="primary" className="h-14 px-10 text-lg rounded-full gap-2">
                             Book a Free Strategy Call <ArrowRight className="w-5 h-5" />
                         </Button>
@@ -55,34 +55,6 @@ export default function Hero() {
                             See How It Works
                         </Button>
                     </Link>
-                </div>
-            </motion.div>
-
-            {/* Stats Bar */}
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-24 w-full max-w-4xl mx-auto px-6 relative"
-            >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {[
-                        { icon: Zap, stat: "40+ hrs", label: "Saved per month, per client" },
-                        { icon: TrendingUp, stat: "3x", label: "Average lead increase" },
-                        { icon: Shield, stat: "100%", label: "Done-for-you service" },
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.7 + index * 0.15, duration: 0.8 }}
-                            className="bg-secondary/50 rounded-2xl p-6 text-center border border-white/5"
-                        >
-                            <item.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                            <p className="text-3xl font-bold text-foreground mb-1">{item.stat}</p>
-                            <p className="text-sm text-foreground/50">{item.label}</p>
-                        </motion.div>
-                    ))}
                 </div>
             </motion.div>
         </section>

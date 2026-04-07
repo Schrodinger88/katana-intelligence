@@ -32,14 +32,14 @@ export default function Footer() {
                                 <li><Link href="#process" className="hover:text-foreground transition-colors">How It Works</Link></li>
                                 <li><Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
                                 <li><Link href="#faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
-                                <li><Link href="https://cal.com" target="_blank" className="hover:text-foreground transition-colors">Contact</Link></li>
+                                <li><Link href="https://cal.com/erwin-peter/30min" target="_blank" className="hover:text-foreground transition-colors">Contact</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">Connect</h4>
                             <ul className="space-y-3 text-foreground/60">
-                                <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Twitter / X</a></li>
-                                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a></li>
+                                <li><a href="https://x.com/ErwinPeter88" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Twitter / X</a></li>
+                                <li><a href="https://linkedin.com/in/erwan-pierre-01b0b6348" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a></li>
                                 <li><a href="mailto:hello@katanaintelligence.com" className="hover:text-foreground transition-colors">Email</a></li>
                             </ul>
                         </div>

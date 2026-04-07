@@ -28,7 +28,7 @@ export default function Contact() {
                         how to automate your biggest time drains — no strings attached.
                     </p>
 
-                    <Link href="https://calendly.com" target="_blank">
+                    <Link href="https://cal.com/erwin-peter/30min" target="_blank">
                         <Button variant="primary" className="h-16 px-12 text-xl rounded-full shadow-2xl hover:scale-105 gap-2">
                             Book Your Free Call <ArrowRight className="w-5 h-5" />
                         </Button>

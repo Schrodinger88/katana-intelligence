@@ -124,7 +124,7 @@ export default function Pricing() {
                                 ))}
                             </ul>
 
-                            <Link href="https://cal.com" target="_blank">
+                            <Link href="https://cal.com/erwin-peter/30min" target="_blank">
                                 <Button
                                     variant={plan.highlighted ? "secondary" : "primary"}
                                     className="w-full rounded-full h-12"
