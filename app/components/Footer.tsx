@@ -23,7 +23,8 @@ export default function Footer() {
                                 <li><Link href="#services" className="hover:text-foreground transition-colors">Admin Automation</Link></li>
                                 <li><Link href="#services" className="hover:text-foreground transition-colors">Lead Generation</Link></li>
                                 <li><Link href="#services" className="hover:text-foreground transition-colors">Website Design</Link></li>
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">Workflow Orchestration</Link></li>
+                                <li><Link href="#services" className="hover:text-foreground transition-colors">SEO & ASO</Link></li>
+                                <li><Link href="#services" className="hover:text-foreground transition-colors">Performance Marketing</Link></li>
                             </ul>
                         </div>
                         <div>
@@ -50,8 +51,8 @@ export default function Footer() {
                 <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/40 gap-4">
                     <p>&copy; {new Date().getFullYear()} Katana Intelligence. All rights reserved.</p>
                     <div className="flex gap-6">
-                        <a href="#" className="hover:text-foreground/60 transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-foreground/60 transition-colors">Terms of Service</a>
+                        <Link href="/privacy" className="hover:text-foreground/60 transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-foreground/60 transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>

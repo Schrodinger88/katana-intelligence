@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-32 pb-20">
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-28 pb-16">
 
             {/* Subtle Background Blobs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -33,16 +33,25 @@ export default function Hero() {
                 </motion.div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground mb-8 leading-[1.1]">
-                    Cut through <br />
+                    Stop missing calls. <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/50">
-                        the busywork.
+                        Stop losing quotes.
                     </span>
                 </h1>
 
                 <p className="text-xl text-foreground/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-                    We build your website, your AI responder, and your lead engine — for free.
-                    You only pay once we bring you real, qualified leads. Sharp systems, surgical results.
+                    We build your website, AI responder, and lead engine — then handle your
+                    SEO, ASO, and marketing. All for free, until we deliver 10 qualified leads.
+                    Sharp systems, surgical results.
                 </p>
+
+                <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto">
+                    {["Never miss a call", "Follow-ups on autopilot", "Rank on Google", "Quotes sent in minutes"].map((tag) => (
+                        <span key={tag} className="text-xs md:text-sm text-foreground/50 px-3 py-1 rounded-full bg-secondary/60">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <Link href="https://cal.com/erwin-peter/30min" target="_blank">
@@ -56,6 +65,10 @@ export default function Hero() {
                         </Button>
                     </Link>
                 </div>
+
+                <p className="text-sm text-foreground/40 mt-6">
+                    Not ready to book? <Link href="mailto:hello@katanaintelligence.com?subject=Send%20me%20the%20lead%20leak%20checklist" className="underline hover:text-foreground/70 transition-colors">Get the free &ldquo;Lead Leak&rdquo; checklist</Link> instead.
+                </p>
             </motion.div>
         </section>
     );

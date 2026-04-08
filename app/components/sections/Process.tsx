@@ -5,31 +5,31 @@ import { motion } from "framer-motion";
 const steps = [
     {
         id: "01",
-        title: "Discovery Call",
-        description: "We learn your business inside-out — your bottlenecks, goals, and what's eating your time."
+        title: "Free 30-min Audit",
+        description: "I shadow your week — watching where leads leak, which emails eat your evenings, and what your customers Google before calling you."
     },
     {
         id: "02",
-        title: "Strategy & Design",
-        description: "We architect the perfect automation stack and design your systems before building anything."
+        title: "Custom System Blueprint",
+        description: "Within 48 hours you get a written plan: the exact automations, website changes, and SEO/ASO levers I'll build — plus projected lead volume."
     },
     {
         id: "03",
-        title: "Build & Deploy",
-        description: "We build, test, and seamlessly integrate everything into your existing workflow."
+        title: "Build in 14 Days",
+        description: "Website, AI responder, lead engine, and tracking all live within two weeks. No retainer billed until your first 10 qualified leads land."
     },
     {
         id: "04",
-        title: "Optimize & Scale",
-        description: "Continuous improvements based on real data. Your systems get smarter over time."
+        title: "Grow on Autopilot",
+        description: "Weekly optimization on conversion, SEO rankings, and ad performance. You see every metric in one dashboard — no black-box reporting."
     }
 ];
 
 export default function Process() {
     return (
-        <section id="process" className="py-32 bg-secondary/30">
+        <section id="process" className="py-24 bg-secondary/30">
             <div className="container mx-auto px-6">
-                <div className="max-w-2xl mb-24">
+                <div className="max-w-2xl mb-16">
                     <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
                         How it works.
                     </h2>

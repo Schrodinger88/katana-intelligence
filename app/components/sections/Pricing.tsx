@@ -7,18 +7,18 @@ import { Check } from "lucide-react";
 
 const features = [
     "Free website build & full automation setup",
-    "AI Responder 24/7 included (fair-use limit)",
+    "AI Responder 24/7 (up to 1,000 conversations/mo)",
+    "SEO, ASO & performance marketing included",
     "Fully managed on our infrastructure",
     "Secure integration with your existing tools",
-    "Powered by OpenClaw & Claude Cowork",
     "Ongoing optimization and support",
 ];
 
 export default function Pricing() {
     return (
-        <section id="pricing" className="py-32 bg-background">
+        <section id="pricing" className="py-24 bg-background">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-20">
+                <div className="text-center mb-16">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-foreground/60 text-sm font-medium tracking-tight mb-6">
                         Pay for results, not promises
                     </span>
@@ -50,13 +50,19 @@ export default function Pricing() {
                             </span>
                         </div>
                         <p className="text-primary-invert/70 text-sm mb-4">
-                            Only billed once we generate <strong>10 qualified leads</strong>.
-                            Then <strong>$25</strong> per additional lead.
+                            $0 until we deliver your first <strong>10 qualified leads</strong>.
+                            After that, a flat <strong>$599/month</strong> covering up to 10 leads,
+                            plus <strong>$25</strong> per additional lead that same month.
+                        </p>
+                        <p className="text-primary-invert/80 leading-relaxed text-sm mb-4">
+                            <strong>Qualified lead =</strong> a real person in your service area
+                            who requested a quote, booked a call, or explicitly asked for your
+                            services. Bots, tire-kickers, and wrong-fit inquiries don&apos;t count.
                         </p>
                         <p className="text-primary-invert/80 leading-relaxed">
-                            Free website and automation setup. AI included up to a fair limit.
-                            Fully managed on our infrastructure and integrated securely with your
-                            existing tools.
+                            Free website, automation setup, SEO, ASO and marketing included.
+                            Fully managed on our infrastructure and integrated securely with
+                            your existing tools.
                         </p>
                     </div>
 

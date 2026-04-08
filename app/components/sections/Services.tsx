@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, BarChart3, Globe, MessageSquare } from "lucide-react";
+import { Bot, BarChart3, Globe, MessageSquare, Search, TrendingUp } from "lucide-react";
 
 const services = [
     {
         icon: MessageSquare,
         title: "AI Responder 24/7",
-        description: "Built on OpenClaw and Claude Cowork, our AI answers every call, DM, and form the second it hits — so you never lose a lead to a missed reply again.",
+        description: "Our AI answers every call, DM, and form the second it hits — so you never lose a lead to a missed reply, even when you're on the job.",
         colSpan: "md:col-span-2"
     },
     {
@@ -27,14 +27,26 @@ const services = [
         title: "Website Design",
         description: "Premium sites that turn traffic into booked jobs. Built free, hosted on our infrastructure, tuned for conversion.",
         colSpan: "md:col-span-2"
+    },
+    {
+        icon: Search,
+        title: "SEO & ASO",
+        description: "Rank on Google and the App Store for the searches your customers actually type. Technical SEO, local SEO, and App Store Optimization — done in-house.",
+        colSpan: "md:col-span-2"
+    },
+    {
+        icon: TrendingUp,
+        title: "Performance Marketing",
+        description: "Paid ads, landing pages, and conversion tracking wired into the same system as your AI responder — so nothing slips through the cracks.",
+        colSpan: "md:col-span-1"
     }
 ];
 
 export default function Services() {
     return (
-        <section id="services" className="py-32 bg-background">
+        <section id="services" className="py-24 bg-background">
             <div className="container mx-auto px-6">
-                <div className="mb-20">
+                <div className="mb-16">
                     <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
                         What we do<br />
                         <span className="text-foreground/40">for you.</span>

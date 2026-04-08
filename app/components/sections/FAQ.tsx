@@ -18,6 +18,14 @@ const faqs = [
         answer: "Not at all. Everything is done-for-you. We handle the building, integration, and maintenance. You just tell us what's slowing you down, and we fix it."
     },
     {
+        question: "What counts as a \"qualified lead\"?",
+        answer: "A real person in your service area who requested a quote, booked a call, or explicitly asked about your services. Bots, spam submissions, duplicates, and out-of-area inquiries don't count. We define this in writing before we start so there's no argument later."
+    },
+    {
+        question: "Do you handle SEO, ASO, and marketing too?",
+        answer: "Yes — it's all included. I handle technical and local SEO, App Store Optimization if you have a mobile app, and performance marketing (paid ads, landing pages, conversion tracking). Everything is wired into the same system as your AI responder, so every lead source is measurable in one place."
+    },
+    {
         question: "What tools and platforms do you use?",
         answer: "We use a mix of AI tools, n8n, Make, custom APIs, and platforms like Slack, HubSpot, Gmail, and Calendly — whatever fits your existing stack. We adapt to your tools, not the other way around."
     },
@@ -74,7 +82,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 
 export default function FAQ() {
     return (
-        <section id="faq" className="py-32 bg-secondary/30">
+        <section id="faq" className="py-24 bg-secondary/30">
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="mb-16">

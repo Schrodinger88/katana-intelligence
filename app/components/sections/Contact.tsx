@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Contact() {
     return (
-        <section className="py-32 bg-background relative overflow-hidden text-center">
+        <section className="py-24 bg-background relative overflow-hidden text-center">
             {/* Background glow */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
