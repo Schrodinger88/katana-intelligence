@@ -1,31 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, BarChart3, Globe, Workflow } from "lucide-react";
+import { Bot, BarChart3, Globe, MessageSquare } from "lucide-react";
 
 const services = [
     {
-        icon: Bot,
-        title: "Admin Automation",
-        description: "We build AI systems that handle your emails, scheduling, invoicing, and repetitive tasks — so your team can focus on what matters.",
+        icon: MessageSquare,
+        title: "AI Responder 24/7",
+        description: "Built on OpenClaw and Claude Cowork, our AI answers every call, DM, and form the second it hits — so you never lose a lead to a missed reply again.",
         colSpan: "md:col-span-2"
     },
     {
         icon: BarChart3,
         title: "Lead Generation",
-        description: "Automated outreach, lead scoring, and follow-up sequences that fill your pipeline 24/7.",
+        description: "Automated outreach that books calls while you sleep. Pay only when we deliver real, qualified leads.",
+        colSpan: "md:col-span-1"
+    },
+    {
+        icon: Bot,
+        title: "Admin Automation",
+        description: "Emails, scheduling, invoicing, follow-ups — we cut the busywork that eats your week.",
         colSpan: "md:col-span-1"
     },
     {
         icon: Globe,
         title: "Website Design",
-        description: "High-converting, premium websites built to turn visitors into paying clients.",
-        colSpan: "md:col-span-1"
-    },
-    {
-        icon: Workflow,
-        title: "Workflow Orchestration",
-        description: "We connect your tools, APIs, and data into seamless automated workflows that scale with you.",
+        description: "Premium sites that turn traffic into booked jobs. Built free, hosted on our infrastructure, tuned for conversion.",
         colSpan: "md:col-span-2"
     }
 ];

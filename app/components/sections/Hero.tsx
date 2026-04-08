@@ -28,31 +28,31 @@ export default function Hero() {
                     className="mb-8"
                 >
                     <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-foreground/60 text-sm font-medium tracking-tight">
-                        AI-Powered Automation for Your Business
+                        Pay only when we deliver leads
                     </span>
                 </motion.div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground mb-8 leading-[1.1]">
-                    We automate <br />
+                    Cut through <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/50">
-                        your busywork.
+                        the busywork.
                     </span>
                 </h1>
 
                 <p className="text-xl text-foreground/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-                    Katana Intelligence handles your admin, generates leads, and builds
-                    high-converting websites — so you can focus on growing your business.
+                    We build your website, your AI responder, and your lead engine — for free.
+                    You only pay once we bring you real, qualified leads. Sharp systems, surgical results.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <Link href="https://cal.com/erwin-peter/30min" target="_blank">
                         <Button variant="primary" className="h-14 px-10 text-lg rounded-full gap-2">
-                            Book a Free Strategy Call <ArrowRight className="w-5 h-5" />
+                            Get Your Free Audit <ArrowRight className="w-5 h-5" />
                         </Button>
                     </Link>
                     <Link href="#services">
                         <Button variant="secondary" className="h-14 px-8 text-lg rounded-full gap-2">
-                            See How It Works
+                            See What We Build
                         </Button>
                     </Link>
                 </div>

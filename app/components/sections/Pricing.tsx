@@ -5,54 +5,13 @@ import Button from "../ui/Button";
 import Link from "next/link";
 import { Check } from "lucide-react";
 
-const plans = [
-    {
-        name: "Starter",
-        price: "2,500",
-        period: "/month",
-        description: "Perfect for small businesses ready to stop doing everything manually.",
-        features: [
-            "1 core automation workflow",
-            "Email & calendar automation",
-            "Basic lead capture setup",
-            "Weekly performance reports",
-            "Slack/email support",
-        ],
-        cta: "Get Started",
-        highlighted: false,
-    },
-    {
-        name: "Growth",
-        price: "5,000",
-        period: "/month",
-        description: "For businesses serious about scaling with AI-powered systems.",
-        features: [
-            "3 automation workflows",
-            "Full admin automation suite",
-            "Lead gen & outreach sequences",
-            "Landing page or website redesign",
-            "Bi-weekly strategy calls",
-            "Priority support",
-        ],
-        cta: "Most Popular",
-        highlighted: true,
-    },
-    {
-        name: "Enterprise",
-        price: "Custom",
-        period: "",
-        description: "Full-service automation partner for established businesses.",
-        features: [
-            "Unlimited automation workflows",
-            "Complete website build",
-            "Advanced AI agent deployment",
-            "Custom integrations & APIs",
-            "Dedicated account manager",
-            "24/7 priority support",
-        ],
-        cta: "Let's Talk",
-        highlighted: false,
-    },
+const features = [
+    "Free website build & full automation setup",
+    "AI Responder 24/7 included (fair-use limit)",
+    "Fully managed on our infrastructure",
+    "Secure integration with your existing tools",
+    "Powered by OpenClaw & Claude Cowork",
+    "Ongoing optimization and support",
 ];
 
 export default function Pricing() {
@@ -60,81 +19,69 @@ export default function Pricing() {
         <section id="pricing" className="py-32 bg-background">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
+                    <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-foreground/60 text-sm font-medium tracking-tight mb-6">
+                        Pay for results, not promises
+                    </span>
                     <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
-                        Simple pricing.
+                        One plan. <span className="text-foreground/40">Zero risk.</span>
                     </h2>
                     <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-                        No hidden fees. No long-term contracts. Cancel anytime.
+                        We build everything for free. You only pay when we actually deliver leads.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {plans.map((plan, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.8 }}
-                            className={`rounded-[2rem] p-10 flex flex-col ${
-                                plan.highlighted
-                                    ? "bg-primary text-primary-invert ring-2 ring-primary"
-                                    : "bg-secondary"
-                            }`}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-2xl mx-auto rounded-[2rem] p-10 md:p-14 bg-primary text-primary-invert ring-2 ring-primary"
+                >
+                    <div className="mb-8">
+                        <h3 className="text-xl font-semibold text-primary-invert mb-2">
+                            Performance Plan
+                        </h3>
+                        <div className="flex items-baseline gap-2 mb-2">
+                            <span className="text-5xl md:text-6xl font-bold text-primary-invert">
+                                $599
+                            </span>
+                            <span className="text-primary-invert/60 text-lg">
+                                /month
+                            </span>
+                        </div>
+                        <p className="text-primary-invert/70 text-sm mb-4">
+                            Only billed once we generate <strong>10 qualified leads</strong>.
+                            Then <strong>$25</strong> per additional lead.
+                        </p>
+                        <p className="text-primary-invert/80 leading-relaxed">
+                            Free website and automation setup. AI included up to a fair limit.
+                            Fully managed on our infrastructure and integrated securely with your
+                            existing tools.
+                        </p>
+                    </div>
+
+                    <ul className="space-y-3 mb-10">
+                        {features.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                                <Check className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary-invert" />
+                                <span className="text-primary-invert/90">{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <Link href="https://cal.com/erwin-peter/30min" target="_blank">
+                        <Button
+                            variant="secondary"
+                            className="w-full rounded-full h-14 text-lg"
                         >
-                            <div className="mb-8">
-                                <h3 className={`text-xl font-semibold mb-2 ${
-                                    plan.highlighted ? "text-primary-invert" : "text-foreground"
-                                }`}>
-                                    {plan.name}
-                                </h3>
-                                <div className="flex items-baseline gap-1 mb-4">
-                                    <span className={`text-4xl font-bold ${
-                                        plan.highlighted ? "text-primary-invert" : "text-foreground"
-                                    }`}>
-                                        {plan.price === "Custom" ? "" : "$"}{plan.price}
-                                    </span>
-                                    {plan.period && (
-                                        <span className={
-                                            plan.highlighted ? "text-primary-invert/60" : "text-foreground/50"
-                                        }>
-                                            {plan.period}
-                                        </span>
-                                    )}
-                                </div>
-                                <p className={`text-sm leading-relaxed ${
-                                    plan.highlighted ? "text-primary-invert/70" : "text-foreground/60"
-                                }`}>
-                                    {plan.description}
-                                </p>
-                            </div>
+                            Get Your Free Audit
+                        </Button>
+                    </Link>
 
-                            <ul className="space-y-3 mb-10 flex-1">
-                                {plan.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                                            plan.highlighted ? "text-primary-invert" : "text-primary"
-                                        }`} />
-                                        <span className={`text-sm ${
-                                            plan.highlighted ? "text-primary-invert/80" : "text-foreground/70"
-                                        }`}>
-                                            {feature}
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <Link href="https://cal.com/erwin-peter/30min" target="_blank">
-                                <Button
-                                    variant={plan.highlighted ? "secondary" : "primary"}
-                                    className="w-full rounded-full h-12"
-                                >
-                                    {plan.cta}
-                                </Button>
-                            </Link>
-                        </motion.div>
-                    ))}
-                </div>
+                    <p className="text-center text-primary-invert/60 text-xs mt-6">
+                        No setup fees. No long-term contracts. Cancel anytime.
+                    </p>
+                </motion.div>
             </div>
         </section>
     );
