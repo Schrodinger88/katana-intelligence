@@ -35,7 +35,7 @@ const faqs = [
     },
     {
         question: "What happens during the free strategy call?",
-        answer: "We'll spend 30 minutes understanding your business, identifying your biggest time drains, and mapping out exactly how automation can help. No sales pitch — just actionable insights you can use whether you hire us or not."
+        answer: "We'll spend 15 minutes understanding your business, identifying your biggest time drains, and mapping out exactly how automation can help. No sales pitch — just actionable insights you can use whether you hire us or not."
     },
 ];
 

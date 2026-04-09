@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/sections/Hero";
 import Services from "./components/sections/Services";
+import BeforeAfter from "./components/sections/BeforeAfter";
 import Process from "./components/sections/Process";
 import Founder from "./components/sections/Founder";
 import Pricing from "./components/sections/Pricing";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <BeforeAfter />
       <Process />
       <Founder />
       <Pricing />

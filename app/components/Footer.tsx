@@ -33,7 +33,7 @@ export default function Footer() {
                                 <li><Link href="#process" className="hover:text-foreground transition-colors">How It Works</Link></li>
                                 <li><Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
                                 <li><Link href="#faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
-                                <li><Link href="https://cal.com/erwin-peter/30min" target="_blank" className="hover:text-foreground transition-colors">Contact</Link></li>
+                                <li><Link href="https://cal.com/erwin-peter/15min" target="_blank" className="hover:text-foreground transition-colors">Contact</Link></li>
                             </ul>
                         </div>
                         <div>

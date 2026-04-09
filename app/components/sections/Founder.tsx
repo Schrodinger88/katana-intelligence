@@ -2,39 +2,43 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "../ui/Button";
+import { ArrowRight } from "lucide-react";
 
 export default function Founder() {
     return (
-        <section id="founder" className="py-24 bg-background">
+        <section id="founder" className="py-32 bg-secondary/20">
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="md:col-span-2"
                         >
-                            <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-secondary">
+                            <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-secondary group">
                                 <Image
                                     src="/erwan-headshot.png"
                                     alt="Erwin — Founder of Katana Intelligence"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     priority
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                             </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="md:col-span-3"
                         >
-                            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-foreground/60 text-sm font-medium tracking-tight mb-6">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/40 text-foreground/60 text-sm font-medium tracking-tight mb-6 border border-white/10">
                                 Not an agency. One operator.
                             </span>
 
@@ -48,7 +52,7 @@ export default function Founder() {
                                 of operator work most agencies overcharge for and underdeliver on.
                             </p>
 
-                            <p className="text-lg text-foreground/60 leading-relaxed">
+                            <p className="text-lg text-foreground/60 leading-relaxed mb-8">
                                 When you work with Katana, you work with me directly.
                                 No account managers, no handoffs, no 50-person agency overhead.
                                 Beyond automation, I also handle
@@ -57,6 +61,13 @@ export default function Founder() {
                                 <span className="text-foreground/90"> performance marketing</span> —
                                 so the leads we generate turn into a system that compounds.
                             </p>
+
+                            <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                                <Button variant="outline" className="rounded-full h-12 px-6 text-sm gap-2 group">
+                                    Let&apos;s talk
+                                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>

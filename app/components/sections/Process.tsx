@@ -1,70 +1,112 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Phone, FileText, Rocket, TrendingUp } from "lucide-react";
 
 const steps = [
     {
         id: "01",
-        title: "Free 30-min Audit",
-        description: "I shadow your week — watching where leads leak, which emails eat your evenings, and what your customers Google before calling you."
+        icon: Phone,
+        title: "Free 15-min Audit",
+        description: "We look at where leads leak, which emails eat your evenings, and what your customers Google before calling you. You walk away with a clear picture — whether you hire us or not.",
+        detail: "No sales pitch. Just actionable insights.",
     },
     {
         id: "02",
+        icon: FileText,
         title: "Custom System Blueprint",
-        description: "Within 48 hours you get a written plan: the exact automations, website changes, and SEO/ASO levers I'll build — plus projected lead volume."
+        description: "Within 48 hours you get a written plan: the exact automations, website changes, and SEO/ASO levers we'll build — plus projected lead volume and timeline.",
+        detail: "You approve every detail before we start.",
     },
     {
         id: "03",
-        title: "Build in 14 Days",
-        description: "Website, AI responder, lead engine, and tracking all live within two weeks. No retainer billed until your first 10 qualified leads land."
+        icon: Rocket,
+        title: "Build & Launch in 14 Days",
+        description: "Website, AI responder, lead engine, and tracking — all live within two weeks. We build everything for free. No retainer billed until your first 10 qualified leads land.",
+        detail: "Zero upfront cost. We eat the risk.",
     },
     {
         id: "04",
+        icon: TrendingUp,
         title: "Grow on Autopilot",
-        description: "Weekly optimization on conversion, SEO rankings, and ad performance. You see every metric in one dashboard — no black-box reporting."
-    }
+        description: "Weekly optimization on conversion, SEO rankings, and ad performance. You see every metric in one dashboard — no black-box reporting, no guesswork.",
+        detail: "Your system gets smarter every week.",
+    },
 ];
 
 export default function Process() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"],
+    });
+
     return (
-        <section id="process" className="py-24 bg-secondary/30">
+        <section id="process" className="py-32 bg-background">
             <div className="container mx-auto px-6">
-                <div className="max-w-2xl mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-2xl mb-20"
+                >
                     <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
-                        How it works.
+                        From overwhelmed to automated.<br />
+                        <span className="text-foreground/40">In four steps.</span>
                     </h2>
                     <p className="text-xl text-foreground/60">
-                        A simple, proven process to get you from overwhelmed to automated.
+                        A simple, proven process. No surprises, no hidden fees.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-
-                    {/* Connecting Line (Desktop) */}
-                    <div className="absolute top-8 left-0 right-0 h-px bg-foreground/10 hidden md:block" />
-
-                    {steps.map((step, index) => (
+                <div ref={containerRef} className="relative">
+                    {/* Vertical Progress Line */}
+                    <div className="absolute left-[27px] md:left-[31px] top-0 bottom-0 w-px bg-white/10">
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 }}
-                            className="relative p-6 pt-12"
-                        >
-                            <div className="w-4 h-4 rounded-full bg-primary absolute top-6 left-6 md:left-0 md:-translate-y-1/2 md:translate-x-0 hidden md:block ring-4 ring-background" />
+                            className="w-full bg-primary origin-top"
+                            style={{ height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+                        />
+                    </div>
 
-                            <span className="text-sm font-bold text-foreground/30 mb-4 block tracking-wider">
-                                {step.id}
-                            </span>
-                            <h3 className="text-xl font-semibold text-foreground mb-3">
-                                {step.title}
-                            </h3>
-                            <p className="text-foreground/60 leading-relaxed">
-                                {step.description}
-                            </p>
-                        </motion.div>
-                    ))}
+                    <div className="space-y-4">
+                        {steps.map((step, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative flex gap-6 md:gap-10 group"
+                            >
+                                {/* Step Indicator */}
+                                <div className="flex-shrink-0 relative z-10">
+                                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-secondary border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500">
+                                        <step.icon className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors duration-500" />
+                                    </div>
+                                </div>
+
+                                {/* Step Content */}
+                                <div className="flex-1 pb-16">
+                                    <div className="bg-secondary/40 rounded-[2rem] p-8 md:p-10 border border-white/5 group-hover:bg-secondary/60 group-hover:border-white/10 transition-all duration-500">
+                                        <span className="text-xs font-bold text-foreground/20 tracking-widest mb-4 block">
+                                            STEP {step.id}
+                                        </span>
+                                        <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-foreground/60 text-lg leading-relaxed mb-4">
+                                            {step.description}
+                                        </p>
+                                        <p className="text-sm text-primary/80 font-medium">
+                                            {step.detail}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
