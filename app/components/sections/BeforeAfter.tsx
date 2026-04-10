@@ -253,19 +253,20 @@ export default function BeforeAfter() {
     const [showAfter, setShowAfter] = useState(false);
 
     return (
-        <section className="py-32 bg-secondary/20">
+        <section className="relative overflow-hidden bg-secondary/20 py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-primary/4 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="mb-12 text-center md:mb-14"
                 >
-                    <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                    <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
                         See the difference.
                     </h2>
-                    <p className="text-xl text-foreground/60 max-w-2xl mx-auto mb-10">
+                    <p className="mx-auto mb-8 max-w-2xl text-lg text-foreground/60 md:mb-10 md:text-xl">
                         What changes when your business runs on Katana.
                     </p>
 
@@ -294,7 +295,7 @@ export default function BeforeAfter() {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
                     {comparisons.map((item, index) => (
                         <motion.div
                             key={index}
@@ -302,7 +303,7 @@ export default function BeforeAfter() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className={`rounded-[2rem] p-8 border transition-all duration-500 ${
+                            className={`rounded-[2rem] border p-6 transition-all duration-500 md:p-8 ${
                                 showAfter
                                     ? "bg-green-500/5 border-green-500/10"
                                     : "bg-red-500/5 border-red-500/10"
@@ -330,7 +331,7 @@ export default function BeforeAfter() {
                                                 <X className="w-3.5 h-3.5 text-red-400" />
                                             </div>
                                         )}
-                                        <p className="text-foreground/70 text-lg leading-relaxed">
+                                        <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
                                             {showAfter ? item.after.text : item.before.text}
                                         </p>
                                     </div>
@@ -348,48 +349,52 @@ export default function BeforeAfter() {
                 </div>
 
                 {/* AI Demo Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-5xl mx-auto mt-16"
-                >
-                    <div className="text-center mb-10">
-                        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground mb-3">
-                            Try it yourself.
-                        </h3>
-                        <p className="text-foreground/50">
-                            Chat with our AI or hear how it handles a phone call - live.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <AnimatePresence>
+                    {showAfter ? (
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 20 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                            className="mx-auto mt-12 max-w-5xl md:mt-16"
                         >
-                            <div className="flex items-center gap-2 mb-3">
-                                <MessageSquare className="w-4 h-4 text-foreground/40" />
-                                <span className="text-sm font-medium text-foreground/60">AI Chatbot</span>
+                            <div className="mb-8 text-center md:mb-10">
+                                <h3 className="mb-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                                    Try it yourself.
+                                </h3>
+                                <p className="text-foreground/50">
+                                    Chat with our AI or hear how it handles a phone call live.
+                                </p>
                             </div>
-                            <ChatbotDemo />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                        >
-                            <div className="flex items-center gap-2 mb-3">
-                                <Phone className="w-4 h-4 text-foreground/40" />
-                                <span className="text-sm font-medium text-foreground/60">AI Caller</span>
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -10 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <div className="mb-3 flex items-center gap-2">
+                                        <MessageSquare className="h-4 w-4 text-foreground/40" />
+                                        <span className="text-sm font-medium text-foreground/60">AI Chatbot</span>
+                                    </div>
+                                    <ChatbotDemo />
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 10 }}
+                                    transition={{ duration: 0.6, delay: 0.05 }}
+                                >
+                                    <div className="mb-3 flex items-center gap-2">
+                                        <Phone className="h-4 w-4 text-foreground/40" />
+                                        <span className="text-sm font-medium text-foreground/60">AI Caller</span>
+                                    </div>
+                                    <CallerDemo />
+                                </motion.div>
                             </div>
-                            <CallerDemo />
                         </motion.div>
-                    </div>
-                </motion.div>
+                    ) : null}
+                </AnimatePresence>
             </div>
         </section>
     );

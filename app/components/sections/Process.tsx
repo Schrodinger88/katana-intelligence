@@ -45,20 +45,21 @@ export default function Process() {
     const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section id="process" className="py-32 bg-background">
+        <section id="process" className="relative overflow-hidden bg-background py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-secondary/10 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-2xl mb-20"
+                    className="mb-14 max-w-2xl md:mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                    <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
                         From overwhelmed to automated.<br />
                         <span className="text-foreground/40">In four steps.</span>
                     </h2>
-                    <p className="text-xl text-foreground/60">
+                    <p className="text-lg text-foreground/60 md:text-xl">
                         A simple, proven process. No surprises, no hidden fees.
                     </p>
                 </motion.div>
@@ -90,8 +91,8 @@ export default function Process() {
                                 </div>
 
                                 {/* Step Content */}
-                                <div className="flex-1 pb-16">
-                                    <div className="bg-secondary/40 rounded-[2rem] p-8 md:p-10 border border-white/5 group-hover:bg-secondary/60 group-hover:border-white/10 transition-all duration-500">
+                                <div className="flex-1 pb-10 md:pb-12">
+                                    <div className="rounded-[2rem] border border-white/5 bg-secondary/40 p-6 transition-all duration-500 group-hover:border-white/10 group-hover:bg-secondary/60 md:p-10">
                                         <span className="text-xs font-bold text-foreground/20 tracking-widest mb-4 block">
                                             STEP {step.id}
                                         </span>

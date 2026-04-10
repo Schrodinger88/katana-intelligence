@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Contact() {
     return (
-        <section className="py-32 bg-background relative overflow-hidden text-center">
+        <section className="relative overflow-hidden bg-background py-20 text-center md:py-24">
             {/* Animated background glow */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -26,17 +26,17 @@ export default function Contact() {
                     className="max-w-4xl mx-auto"
                 >
                     <motion.h2
-                        className="text-5xl md:text-7xl font-semibold tracking-tight text-foreground mb-4"
+                        className="mb-4 text-4xl font-semibold tracking-tight text-foreground md:text-7xl text-balance"
                     >
                         Ready to stop
                     </motion.h2>
                     <motion.h2
-                        className="text-5xl md:text-7xl font-semibold tracking-tight text-foreground/40 mb-8"
+                        className="mb-8 text-4xl font-semibold tracking-tight text-foreground/40 md:text-7xl text-balance"
                     >
                         doing it all yourself?
                     </motion.h2>
 
-                    <p className="text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-foreground/60 md:mb-12 md:text-xl">
                         Book a free 15-minute strategy call. We&apos;ll map out exactly
                         how to automate your biggest time drains - no strings attached.
                     </p>

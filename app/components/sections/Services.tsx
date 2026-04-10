@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bot, BarChart3, Globe, MessageSquare, Search, TrendingUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
@@ -232,73 +232,141 @@ const services = [
 
 export default function Services() {
     const [active, setActive] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const activeCardRef = useRef<HTMLDivElement | null>(null);
     const activeService = services[active];
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 1023px)");
+        const syncMobile = () => setIsMobile(mediaQuery.matches);
+
+        syncMobile();
+        mediaQuery.addEventListener("change", syncMobile);
+
+        return () => mediaQuery.removeEventListener("change", syncMobile);
+    }, []);
+
+    useEffect(() => {
+        if (!isMobile || !activeCardRef.current) return;
+
+        activeCardRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+        });
+    }, [active, isMobile]);
+
     return (
-        <section id="services" className="py-32 bg-background">
+        <section id="services" className="relative overflow-hidden bg-background py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/8 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="mb-16"
+                    className="mb-12 md:mb-14"
                 >
-                    <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                    <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
                         Everything you need to grow.<br />
                         <span className="text-foreground/40">Nothing you don&apos;t.</span>
                     </h2>
-                    <p className="text-xl text-foreground/60 max-w-2xl">
+                    <p className="max-w-2xl text-lg text-foreground/60 md:text-xl">
                         Six services. One system. Every piece talks to every other piece -
                         so your leads, website, ads, and AI all work together.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
                     {/* Left: Service Tabs */}
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                         {services.map((service, index) => (
-                            <motion.button
-                                key={index}
-                                onClick={() => setActive(index)}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05, duration: 0.5 }}
-                                className={`w-full text-left p-5 rounded-2xl transition-all duration-300 flex items-center gap-4 group ${
-                                    active === index
-                                        ? "bg-secondary/80"
-                                        : "bg-transparent hover:bg-secondary/30"
-                                }`}
-                            >
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
-                                    active === index ? "bg-primary/20" : "bg-white/5"
-                                }`}>
-                                    <service.icon size={20} className={`transition-colors duration-300 ${
-                                        active === index ? "text-primary" : "text-foreground/40"
+                            <div key={index}>
+                                <motion.button
+                                    onClick={() => setActive(index)}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05, duration: 0.5 }}
+                                    className={`group flex w-full items-center gap-4 rounded-2xl p-4 text-left transition-all duration-300 md:p-5 ${
+                                        active === index
+                                            ? "bg-secondary/80"
+                                            : "bg-transparent hover:bg-secondary/30"
+                                    }`}
+                                >
+                                    <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
+                                        active === index ? "bg-primary/20" : "bg-white/5"
+                                    }`}>
+                                        <service.icon size={20} className={`transition-colors duration-300 ${
+                                            active === index ? "text-primary" : "text-foreground/40"
+                                        }`} />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                        <h3 className={`text-base font-semibold transition-colors duration-300 md:text-lg ${
+                                            active === index ? "text-foreground" : "text-foreground/60"
+                                        }`}>
+                                            {service.title}
+                                        </h3>
+                                        <p className={`text-sm transition-colors duration-300 ${
+                                            active === index ? "text-foreground/50" : "text-foreground/30"
+                                        }`}>
+                                            {service.subtitle}
+                                        </p>
+                                    </div>
+                                    <ArrowRight className={`h-4 w-4 flex-shrink-0 transition-all duration-300 ${
+                                        active === index ? "translate-x-0 text-foreground/40 opacity-100" : "-translate-x-2 text-foreground/20 opacity-0"
                                     }`} />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <h3 className={`text-lg font-semibold transition-colors duration-300 ${
-                                        active === index ? "text-foreground" : "text-foreground/60"
-                                    }`}>
-                                        {service.title}
-                                    </h3>
-                                    <p className={`text-sm transition-colors duration-300 ${
-                                        active === index ? "text-foreground/50" : "text-foreground/30"
-                                    }`}>
-                                        {service.subtitle}
-                                    </p>
-                                </div>
-                                <ArrowRight className={`w-4 h-4 transition-all duration-300 flex-shrink-0 ${
-                                    active === index ? "text-foreground/40 translate-x-0 opacity-100" : "text-foreground/20 -translate-x-2 opacity-0"
-                                }`} />
-                            </motion.button>
+                                </motion.button>
+
+                                {isMobile && active === index && (
+                                    <div ref={activeCardRef} className="pt-3">
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={`mobile-${active}`}
+                                                initial={{ opacity: 0, y: 16 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: -8 }}
+                                                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                                className="rounded-[2rem] border border-white/5 bg-secondary/50 p-6"
+                                            >
+                                                <div className="mb-6">
+                                                    {activeService.visual}
+                                                </div>
+
+                                                <p className="mb-5 text-base leading-relaxed text-foreground/70">
+                                                    {activeService.description}
+                                                </p>
+
+                                                <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                                    {activeService.features.map((f, i) => (
+                                                        <motion.div
+                                                            key={i}
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                            transition={{ delay: i * 0.08 }}
+                                                            className="flex items-center gap-2 text-sm text-foreground/50"
+                                                        >
+                                                            <div className="h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                                                            {f}
+                                                        </motion.div>
+                                                    ))}
+                                                </div>
+
+                                                <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                                                    <Button variant="outline" className="h-11 rounded-full px-6 text-sm gap-2 group">
+                                                        Learn more on a call
+                                                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                                    </Button>
+                                                </Link>
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </div>
 
                     {/* Right: Active Service Detail */}
-                    <div className="lg:sticky lg:top-32">
+                    <div className="hidden lg:sticky lg:top-28 lg:block">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={active}
@@ -306,7 +374,7 @@ export default function Services() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                className="bg-secondary/50 border border-white/5 rounded-[2rem] p-8 md:p-10"
+                                className="rounded-[2rem] border border-white/5 bg-secondary/50 p-8 md:p-10"
                             >
                                 {/* Visual */}
                                 <div className="mb-8">
@@ -319,7 +387,7 @@ export default function Services() {
                                 </p>
 
                                 {/* Features */}
-                                <div className="grid grid-cols-2 gap-3 mb-8">
+                                <div className="mb-8 grid grid-cols-2 gap-3">
                                     {activeService.features.map((f, i) => (
                                         <motion.div
                                             key={i}

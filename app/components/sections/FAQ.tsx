@@ -82,14 +82,15 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 
 export default function FAQ() {
     return (
-        <section id="faq" className="py-24 bg-secondary/30">
+        <section id="faq" className="relative overflow-hidden bg-secondary/30 py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-primary/4 to-transparent" />
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
-                    <div className="mb-16">
-                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                    <div className="mb-12 md:mb-14">
+                        <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
                             Questions?
                         </h2>
-                        <p className="text-xl text-foreground/60">
+                        <p className="text-lg text-foreground/60 md:text-xl">
                             Here are the ones we get asked the most.
                         </p>
                     </div>

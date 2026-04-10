@@ -16,22 +16,23 @@ const features = [
 
 export default function Pricing() {
     return (
-        <section id="pricing" className="py-32 bg-background">
+        <section id="pricing" className="relative overflow-hidden bg-background py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-primary/8 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="mb-12 text-center md:mb-14"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-foreground/60 text-sm font-medium tracking-tight mb-6 border border-white/10">
+                    <span className="mb-6 inline-block rounded-full border border-white/10 bg-secondary/20 px-4 py-1.5 text-sm font-medium tracking-tight text-foreground/60">
                         Pay for results, not promises
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+                    <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
                         One plan. <span className="text-foreground/40">Zero risk.</span>
                     </h2>
-                    <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
+                    <p className="mx-auto max-w-2xl text-lg text-foreground/60 md:text-xl">
                         We build everything for free. You only pay when we actually deliver leads.
                     </p>
                 </motion.div>
@@ -41,9 +42,9 @@ export default function Pricing() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="max-w-2xl mx-auto"
+                    className="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-[1.2fr_0.8fr]"
                 >
-                    <div className="rounded-[2rem] p-10 md:p-14 bg-primary text-primary-invert relative overflow-hidden">
+                    <div className="relative overflow-hidden rounded-[2rem] bg-primary p-8 text-primary-invert md:p-12">
                         {/* Subtle shimmer */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             <motion.div
@@ -71,15 +72,9 @@ export default function Pricing() {
                                     After that, a flat <strong>$899/month</strong> covering up to 10 leads,
                                     plus <strong>$25</strong> per additional lead that same month.
                                 </p>
-                                <p className="text-primary-invert/80 leading-relaxed text-sm mb-4">
-                                    <strong>Qualified lead =</strong> a real person in your service area
-                                    who requested a quote, booked a call, or explicitly asked for your
-                                    services. Bots, tire-kickers, and wrong-fit inquiries don&apos;t count.
-                                </p>
                                 <p className="text-primary-invert/80 leading-relaxed">
-                                    Free website, automation setup, AI SEO and marketing included.
-                                    Fully managed on our infrastructure and integrated securely with
-                                    your existing tools.
+                                    Built for owner-led service businesses that want a full lead system
+                                    without retainers, setup fees, or deadweight overhead.
                                 </p>
                             </div>
 
@@ -112,6 +107,56 @@ export default function Pricing() {
                             <p className="text-center text-primary-invert/60 text-xs mt-6">
                                 No setup fees. No long-term contracts. Cancel anytime.
                             </p>
+                        </div>
+                    </div>
+
+                    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-secondary/20 p-8 md:p-10">
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(218,240,238,0.18),transparent_45%)]" />
+                        <div className="relative z-10">
+                            <div className="mb-8">
+                                <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-foreground/50">
+                                    Enterprise
+                                </span>
+                                <h3 className="mb-2 text-2xl font-semibold text-foreground">
+                                    Custom growth infrastructure
+                                </h3>
+                                <div className="mb-4 text-4xl font-bold tracking-tight text-foreground">
+                                    Custom
+                                </div>
+                                <p className="leading-relaxed text-foreground/60">
+                                    For multi-location operators, higher ad spend, internal sales teams,
+                                    or businesses that need custom reporting, routing logic, and deeper systems work.
+                                </p>
+                            </div>
+
+                            <ul className="mb-10 space-y-3">
+                                {[
+                                    "Custom lead qualification and routing rules",
+                                    "Advanced attribution, dashboards, and CRM syncing",
+                                    "Multi-location SEO, GEO/AEO, and paid media strategy",
+                                    "Higher conversation volumes and priority support",
+                                    "Quarterly growth planning with custom build scope",
+                                ].map((feature, i) => (
+                                    <motion.li
+                                        key={feature}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.05 + i * 0.05, duration: 0.4 }}
+                                        className="flex items-start gap-3"
+                                    >
+                                        <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                                        <span className="text-foreground/80">{feature}</span>
+                                    </motion.li>
+                                ))}
+                            </ul>
+
+                            <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                                <Button variant="outline" className="h-14 w-full rounded-full text-base gap-2 group">
+                                    Talk through your setup
+                                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </motion.div>

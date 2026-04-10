@@ -8,10 +8,11 @@ import { ArrowRight } from "lucide-react";
 
 export default function Founder() {
     return (
-        <section id="founder" className="py-32 bg-secondary/20">
+        <section id="founder" className="relative overflow-hidden bg-secondary/20 py-20 md:py-24">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-primary/4 to-transparent" />
             <div className="container mx-auto px-6">
                 <div className="max-w-5xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                    <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-5 md:gap-12">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -38,35 +39,36 @@ export default function Founder() {
                             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="md:col-span-3"
                         >
-                            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/40 text-foreground/60 text-sm font-medium tracking-tight mb-6 border border-white/10">
+                            <span className="mb-6 inline-block rounded-full border border-white/10 bg-secondary/40 px-4 py-1.5 text-sm font-medium tracking-tight text-foreground/60">
                                 Not an agency. One operator.
                             </span>
 
-                            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6 leading-[1.1]">
+                            <h2 className="mb-4 text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
                                 Hey, I&apos;m Erwin.
                             </h2>
 
-                            <p className="text-xl text-foreground/70 leading-relaxed mb-6">
-                                Founder of Katana Intelligence. I build automation systems,
-                                websites, and growth engines for service businesses - the kind
-                                of operator work most agencies overcharge for and underdeliver on.
+                            <p className="mb-4 text-lg leading-relaxed text-foreground/70 md:text-xl">
+                                Founder of Katana Intelligence.
                             </p>
 
-                            <p className="text-lg text-foreground/60 leading-relaxed mb-4">
-                                When you work with Katana, you work with me directly.
-                                No account managers, no handoffs, no 50-person agency overhead.
-                                Beyond automation, I also handle
-                                <span className="text-foreground/90"> AI SEO</span>,
-                                <span className="text-foreground/90"> GEO/AEO</span>, and
-                                <span className="text-foreground/90"> performance marketing</span> -
-                                so the leads we generate turn into a system that compounds.
+                            <p className="mb-4 text-lg leading-relaxed text-foreground/60">
+                                I design and implement automation systems, websites, and growth
+                                infrastructure for service businesses.
                             </p>
 
-                            <p className="text-base text-foreground/40 leading-relaxed mb-8 italic">
-                                Think of it as hiring a full-time growth team - except it&apos;s
-                                one guy and a swarm of AI agents working for heavily below
-                                minimum wage. They don&apos;t complain, they don&apos;t take
-                                lunch breaks, and they definitely don&apos;t call in sick on Mondays.
+                            <p className="mb-4 text-lg leading-relaxed text-foreground/60">
+                                No layers, no handoffs just direct execution. Every system is built
+                                to reduce manual work, increase qualified lead flow, and compound over time.
+                            </p>
+
+                            <p className="mb-4 text-lg leading-relaxed text-foreground/60">
+                                I integrate AI SEO, GEO/AEO, and performance marketing so acquisition
+                                and conversion operate as one system.
+                            </p>
+
+                            <p className="mb-8 text-lg leading-relaxed text-foreground/50">
+                                Katana isn&apos;t an agency it&apos;s a lean, operator-led growth engine powered by AI.
+                                Think of it as a full growth team without the overhead, meetings, or delays.
                             </p>
 
                             <Link href="https://cal.com/erwin-peter/15min" target="_blank">

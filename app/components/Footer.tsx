@@ -8,7 +8,7 @@ function scrollTo(id: string) {
 
 export default function Footer() {
     return (
-        <footer className="bg-background py-20 border-t border-white/10">
+        <footer className="border-t border-white/10 bg-background py-16">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-12">
 

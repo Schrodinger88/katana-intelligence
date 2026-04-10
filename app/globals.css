@@ -49,6 +49,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
 /* Custom Utilities */
 .glass {
   background: var(--surface-glass);
