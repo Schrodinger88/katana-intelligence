@@ -7,16 +7,33 @@ type ChatMessage = {
   content: string;
 };
 
-const openai = process.env.OPENAI_API_KEY
-  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-  : null;
+const usingOpenRouter = Boolean(process.env.OPENROUTER_API_KEY);
+
+const openai = process.env.OPENROUTER_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+      defaultHeaders: {
+        "HTTP-Referer": process.env.APP_URL ?? "http://localhost:3000",
+        "X-Title": process.env.APP_NAME ?? "Katana Intelligence",
+      },
+    })
+  : process.env.OPENAI_API_KEY
+    ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+    : null;
+
+const chatModel = process.env.OPENROUTER_MODEL
+  ? process.env.OPENROUTER_MODEL
+  : usingOpenRouter
+    ? "openrouter/free"
+    : process.env.OPENAI_CHAT_MODEL ?? "gpt-4o-mini";
 
 export async function POST(request: NextRequest) {
   if (!openai) {
     return NextResponse.json(
       {
         error:
-          "Live chat is not configured yet. Add OPENAI_API_KEY to enable the assistant.",
+          "Live chat is not configured yet. Add OPENROUTER_API_KEY or OPENAI_API_KEY to enable the assistant.",
       },
       { status: 503 }
     );
@@ -51,14 +68,23 @@ export async function POST(request: NextRequest) {
       )
       .join("\n");
 
-    const response = await openai.responses.create({
-      model: "gpt-4o-mini",
-      instructions: katanaAssistantPrompt,
-      input: `Recent conversation:\n${recentHistory}\n\nReply to the latest visitor message.`,
-      max_output_tokens: 220,
+    const completion = await openai.chat.completions.create({
+      model: chatModel,
+      temperature: 0.4,
+      max_tokens: 220,
+      messages: [
+        {
+          role: "system",
+          content: katanaAssistantPrompt,
+        },
+        {
+          role: "user",
+          content: `Recent conversation:\n${recentHistory}\n\nReply to the latest visitor message.`,
+        },
+      ],
     });
 
-    const message = response.output_text.trim();
+    const message = completion.choices[0]?.message?.content?.trim();
 
     if (!message) {
       throw new Error("The model returned an empty response.");
