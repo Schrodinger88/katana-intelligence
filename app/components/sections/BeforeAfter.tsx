@@ -76,35 +76,32 @@ const comparisons = [
 const states = {
   before: {
     label: "Without Katana",
-    eyebrow: "Current operating reality",
+    eyebrow: "Without Katana",
     title: "The business still runs, but it leaks time, leads, and momentum.",
     summary:
       "Manual follow-up, weak search presence, and reactive admin work keep growth inconsistent.",
-    tone:
-      "border-red-500/20 bg-[radial-gradient(circle_at_top,_rgba(127,29,29,0.2),_transparent_55%)]",
-    panel: "bg-red-500/[0.03]",
-    badge: "border-red-500/20 bg-red-500/10 text-red-300",
-    chip: "border-red-500/15 bg-red-500/10 text-red-300",
-    iconWrap: "bg-red-500/12 text-red-300 ring-1 ring-inset ring-red-500/20",
-    stateWrap: "bg-red-500/12 text-red-300",
-    accent: "bg-red-400",
+    tone: "",
+    panel: "",
+    badge: "border-white/10 bg-white/[0.04] text-foreground/50",
+    chip: "border-white/10 bg-white/[0.04] text-foreground/62",
+    iconWrap: "bg-white/[0.04] text-foreground/55 ring-1 ring-inset ring-white/10",
+    stateWrap: "bg-white/[0.05] text-foreground/45",
+    accent: "bg-foreground/55",
     points: ["Slow response windows", "Manual admin burden", "Unreliable lead flow"],
   },
   after: {
     label: "With Katana",
-    eyebrow: "Designed operating model",
+    eyebrow: "With Katana",
     title: "One coordinated system handles response, visibility, and follow-through.",
     summary:
       "The same business becomes faster to contact, easier to find, and more predictable to grow.",
-    tone:
-      "border-emerald-500/20 bg-[radial-gradient(circle_at_top,_rgba(6,78,59,0.22),_transparent_58%)]",
-    panel: "bg-emerald-500/[0.03]",
-    badge: "border-emerald-500/20 bg-emerald-500/10 text-emerald-300",
-    chip: "border-emerald-500/15 bg-emerald-500/10 text-emerald-300",
-    iconWrap:
-      "bg-emerald-500/12 text-emerald-300 ring-1 ring-inset ring-emerald-500/20",
-    stateWrap: "bg-emerald-500/12 text-emerald-300",
-    accent: "bg-emerald-400",
+    tone: "",
+    panel: "",
+    badge: "border-white/10 bg-white/[0.04] text-foreground/50",
+    chip: "border-white/10 bg-white/[0.04] text-foreground/62",
+    iconWrap: "bg-white/[0.04] text-foreground/55 ring-1 ring-inset ring-white/10",
+    stateWrap: "bg-white/[0.05] text-foreground/45",
+    accent: "bg-foreground/55",
     points: ["Immediate lead handling", "Automated operations", "Compounding growth engine"],
   },
 } as const;
@@ -120,7 +117,7 @@ export default function BeforeAfter() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="absolute left-[10%] top-24 h-72 w-72 rounded-full bg-primary/6 blur-[120px]" />
-        <div className="absolute right-[8%] bottom-20 h-80 w-80 rounded-full bg-emerald-500/5 blur-[140px]" />
+        <div className="absolute right-[8%] bottom-20 h-80 w-80 rounded-full bg-white/[0.03] blur-[140px]" />
       </div>
 
       <div className="container relative mx-auto px-6">
@@ -131,16 +128,11 @@ export default function BeforeAfter() {
           transition={{ duration: 0.8 }}
           className="mx-auto mb-12 max-w-3xl text-center md:mb-14"
         >
-          <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground/45">
-            Operating Comparison
-          </span>
           <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
-            Same business. Different operating system.
+            See the difference.
           </h2>
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-foreground/58 md:text-xl">
-            The story stays the same: fewer missed leads, less admin drag, better
-            visibility, and more predictable growth. This section now presents it
-            like a professional service brand, not a generic card grid.
+            What changes when your business runs on Katana.
           </p>
         </motion.div>
 
@@ -171,8 +163,8 @@ export default function BeforeAfter() {
                   className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 md:px-6 ${
                     selected
                       ? isPositive
-                        ? "bg-emerald-500/16 text-emerald-200 shadow-[inset_0_0_0_1px_rgba(16,185,129,0.22)]"
-                        : "bg-red-500/16 text-red-200 shadow-[inset_0_0_0_1px_rgba(239,68,68,0.22)]"
+                        ? "bg-white text-black"
+                        : "bg-white/[0.08] text-foreground"
                       : "text-foreground/38 hover:text-foreground/65"
                   }`}
                 >
@@ -201,7 +193,7 @@ export default function BeforeAfter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className={`mx-auto max-w-6xl overflow-hidden rounded-[2rem] border bg-white/[0.025] backdrop-blur-sm transition-colors duration-500 ${content.tone}`}
+          className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/8 bg-white/[0.025] backdrop-blur-sm transition-colors duration-500"
         >
           <div className="grid lg:grid-cols-[320px_minmax(0,1fr)]">
             <div className="border-b border-white/8 p-6 lg:border-r lg:border-b-0 lg:p-8">
@@ -238,7 +230,7 @@ export default function BeforeAfter() {
               </AnimatePresence>
             </div>
 
-            <div className={content.panel}>
+            <div>
               {comparisons.map((item, index) => {
                 const row = item[activeState];
 
@@ -259,7 +251,7 @@ export default function BeforeAfter() {
                           <item.icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/35">
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/30">
                             {item.detail}
                           </p>
                           <h4 className="text-lg font-medium text-foreground">
@@ -288,7 +280,7 @@ export default function BeforeAfter() {
                               <X className="h-3.5 w-3.5" />
                             )}
                           </div>
-                          <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
+                          <p className="text-base leading-relaxed text-foreground/68 md:text-lg">
                             {row.text}
                           </p>
                         </div>

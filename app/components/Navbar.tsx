@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -59,13 +60,20 @@ export default function Navbar() {
                     className={cn(
                         "pointer-events-auto",
                         "bg-surface-glass backdrop-blur-xl border border-white/20 shadow-premium",
-                        "rounded-full px-6 py-3 flex items-center justify-between gap-8 h-14",
+                        "rounded-full pl-6 pr-3 py-3 flex items-center justify-between gap-8 h-14",
                         "min-w-[320px] max-w-[90vw] md:min-w-[600px]"
                     )}
                 >
                     {/* Logo */}
-                    <Link href="/" className="font-bold text-lg tracking-tight text-foreground flex items-center gap-2">
-                        Katana.
+                    <Link href="/" className="font-bold text-lg tracking-tight text-foreground flex items-center gap-2.5">
+                        <span>Katana.</span>
+                        <Image
+                            src="/maple-leaf.png"
+                            alt=""
+                            width={14}
+                            height={14}
+                            className="h-3.5 w-3.5 opacity-90"
+                        />
                     </Link>
 
                     {/* Desktop Links */}
@@ -84,7 +92,7 @@ export default function Navbar() {
                     {/* CTA & Mobile Toggle */}
                     <div className="flex items-center gap-2">
                         <Link href="https://cal.com/erwin-peter/15min" target="_blank" className="hidden md:block">
-                            <Button variant="primary" className="h-9 px-4 text-xs rounded-full">
+                            <Button variant="primary" className="h-9 px-5 text-xs rounded-full">
                                 Book a Call
                             </Button>
                         </Link>
