@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { servicePages } from "@/lib/site";
 
@@ -29,18 +28,9 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-start gap-12">
 
                     <div className="max-w-sm">
-                        <div className="mb-4 flex items-center gap-2.5">
-                            <h3 className="font-bold text-2xl tracking-tight text-foreground">
-                                Katana.
-                            </h3>
-                            <Image
-                                src="/maple-leaf.png"
-                                alt=""
-                                width={16}
-                                height={16}
-                                className="h-4 w-4 opacity-85"
-                            />
-                        </div>
+                        <h3 className="mb-4 font-bold text-2xl tracking-tight text-foreground">
+                            Katana.
+                        </h3>
                         <p className="text-foreground/58 leading-relaxed">
                             Proudly Canadian automation systems, websites, AI SEO,
                             and lead generation for service businesses.

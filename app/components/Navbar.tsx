@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -67,13 +66,6 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="font-bold text-lg tracking-tight text-foreground flex items-center gap-2.5">
                         <span>Katana.</span>
-                        <Image
-                            src="/maple-leaf.png"
-                            alt=""
-                            width={14}
-                            height={14}
-                            className="h-3.5 w-3.5 opacity-90"
-                        />
                     </Link>
 
                     {/* Desktop Links */}

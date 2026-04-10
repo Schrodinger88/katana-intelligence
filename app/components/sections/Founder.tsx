@@ -46,7 +46,14 @@ export default function Founder() {
                             </h2>
 
                             <div className="mb-4 flex flex-wrap justify-center gap-2 md:justify-start">
-                                <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
+                                    <Image
+                                        src="/maple-leaf.png"
+                                        alt=""
+                                        width={12}
+                                        height={12}
+                                        className="h-3 w-3 opacity-85"
+                                    />
                                     Proudly Canadian
                                 </span>
                                 <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
