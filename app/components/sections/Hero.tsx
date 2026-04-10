@@ -40,7 +40,7 @@ export default function Hero() {
                     </span>
                 </motion.div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground mb-4 leading-[1.05]">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground mb-4 leading-[1.05] whitespace-nowrap">
                     We build your growth engine.
                 </h1>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground/40 mb-10 leading-[1.05]">
@@ -53,7 +53,7 @@ export default function Hero() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-12 leading-relaxed"
                 >
-                    Website, AI responder, lead generation, SEO, and marketing — all built for free.
+                    Website, AI responder, lead generation, SEO, and marketing - all built for free.
                     You only pay when we deliver real, qualified leads.
                 </motion.p>
 
@@ -69,11 +69,13 @@ export default function Hero() {
                             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                     </Link>
-                    <Link href="#services">
-                        <Button variant="outline" className="h-14 px-8 text-lg rounded-full gap-2">
-                            See How It Works
-                        </Button>
-                    </Link>
+                    <Button
+                        variant="outline"
+                        className="h-14 px-8 text-lg rounded-full gap-2"
+                        onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                    >
+                        See How It Works
+                    </Button>
                 </motion.div>
             </motion.div>
 

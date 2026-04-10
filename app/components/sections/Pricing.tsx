@@ -8,7 +8,7 @@ import { Check, ArrowRight } from "lucide-react";
 const features = [
     "Free website build & full automation setup",
     "AI Responder 24/7 (up to 1,000 conversations/mo)",
-    "SEO, ASO & performance marketing included",
+    "AI SEO & performance marketing included",
     "Fully managed on our infrastructure",
     "Secure integration with your existing tools",
     "Ongoing optimization and support",
@@ -77,7 +77,7 @@ export default function Pricing() {
                                     services. Bots, tire-kickers, and wrong-fit inquiries don&apos;t count.
                                 </p>
                                 <p className="text-primary-invert/80 leading-relaxed">
-                                    Free website, automation setup, SEO, ASO and marketing included.
+                                    Free website, automation setup, AI SEO and marketing included.
                                     Fully managed on our infrastructure and integrated securely with
                                     your existing tools.
                                 </p>

@@ -1,4 +1,10 @@
+"use client";
+
 import Link from "next/link";
+
+function scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Footer() {
     return (
@@ -20,20 +26,20 @@ export default function Footer() {
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">Services</h4>
                             <ul className="space-y-3 text-foreground/60">
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">Admin Automation</Link></li>
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">Lead Generation</Link></li>
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">Website Design</Link></li>
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">SEO & ASO</Link></li>
-                                <li><Link href="#services" className="hover:text-foreground transition-colors">Performance Marketing</Link></li>
+                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Admin Automation</button></li>
+                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Lead Generation</button></li>
+                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Website Design</button></li>
+                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">AI SEO</button></li>
+                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Performance Marketing</button></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">Company</h4>
                             <ul className="space-y-3 text-foreground/60">
-                                <li><Link href="#process" className="hover:text-foreground transition-colors">How It Works</Link></li>
-                                <li><Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
-                                <li><Link href="#faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
-                                <li><Link href="https://cal.com/erwin-peter/15min" target="_blank" className="hover:text-foreground transition-colors">Contact</Link></li>
+                                <li><button onClick={() => scrollTo("process")} className="hover:text-foreground transition-colors">How It Works</button></li>
+                                <li><button onClick={() => scrollTo("pricing")} className="hover:text-foreground transition-colors">Pricing</button></li>
+                                <li><button onClick={() => scrollTo("faq")} className="hover:text-foreground transition-colors">FAQ</button></li>
+                                <li><a href="https://cal.com/erwin-peter/15min" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Contact</a></li>
                             </ul>
                         </div>
                         <div>
@@ -41,7 +47,7 @@ export default function Footer() {
                             <ul className="space-y-3 text-foreground/60">
                                 <li><a href="https://x.com/ErwinPeter88" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Twitter / X</a></li>
                                 <li><a href="https://linkedin.com/in/erwan-pierre-01b0b6348" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a></li>
-                                <li><a href="mailto:hello@katanaintelligence.com" className="hover:text-foreground transition-colors">Email</a></li>
+                                <li><a href="mailto:erwin@katanaintelligence.com" className="hover:text-foreground transition-colors">Email</a></li>
                             </ul>
                         </div>
                     </div>

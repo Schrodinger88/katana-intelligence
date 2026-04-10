@@ -22,7 +22,7 @@ export default function Founder() {
                             <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-secondary group">
                                 <Image
                                     src="/erwan-headshot.png"
-                                    alt="Erwin — Founder of Katana Intelligence"
+                                    alt="Erwin - Founder of Katana Intelligence"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     priority
@@ -48,18 +48,25 @@ export default function Founder() {
 
                             <p className="text-xl text-foreground/70 leading-relaxed mb-6">
                                 Founder of Katana Intelligence. I build automation systems,
-                                websites, and growth engines for service businesses — the kind
+                                websites, and growth engines for service businesses - the kind
                                 of operator work most agencies overcharge for and underdeliver on.
                             </p>
 
-                            <p className="text-lg text-foreground/60 leading-relaxed mb-8">
+                            <p className="text-lg text-foreground/60 leading-relaxed mb-4">
                                 When you work with Katana, you work with me directly.
                                 No account managers, no handoffs, no 50-person agency overhead.
                                 Beyond automation, I also handle
-                                <span className="text-foreground/90"> SEO</span>,
-                                <span className="text-foreground/90"> ASO</span>, and
-                                <span className="text-foreground/90"> performance marketing</span> —
+                                <span className="text-foreground/90"> AI SEO</span>,
+                                <span className="text-foreground/90"> GEO/AEO</span>, and
+                                <span className="text-foreground/90"> performance marketing</span> -
                                 so the leads we generate turn into a system that compounds.
+                            </p>
+
+                            <p className="text-base text-foreground/40 leading-relaxed mb-8 italic">
+                                Think of it as hiring a full-time growth team - except it&apos;s
+                                one guy and a swarm of AI agents working for heavily below
+                                minimum wage. They don&apos;t complain, they don&apos;t take
+                                lunch breaks, and they definitely don&apos;t call in sick on Mondays.
                             </p>
 
                             <Link href="https://cal.com/erwin-peter/15min" target="_blank">

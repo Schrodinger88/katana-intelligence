@@ -31,6 +31,14 @@ export default function Navbar() {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const scrollTo = (href: string) => {
+        const id = href.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <>
             <div className="fixed top-6 inset-x-0 z-50 flex justify-center pointer-events-none">
@@ -56,13 +64,13 @@ export default function Navbar() {
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-6">
                         {navLinks.map((link) => (
-                            <Link
+                            <button
                                 key={link.name}
-                                href={link.href}
+                                onClick={() => scrollTo(link.href)}
                                 className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
                             >
                                 {link.name}
-                            </Link>
+                            </button>
                         ))}
                     </div>
 
@@ -94,14 +102,16 @@ export default function Navbar() {
                         className="fixed inset-x-4 top-24 z-40 bg-surface rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col gap-4 md:hidden"
                     >
                         {navLinks.map((link) => (
-                            <Link
+                            <button
                                 key={link.name}
-                                href={link.href}
-                                className="text-lg font-medium text-foreground p-2 rounded-xl hover:bg-secondary transition-colors"
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={() => {
+                                    scrollTo(link.href);
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="text-lg font-medium text-foreground p-2 rounded-xl hover:bg-secondary transition-colors text-left"
                             >
                                 {link.name}
-                            </Link>
+                            </button>
                         ))}
                         <Link href="https://cal.com/erwin-peter/15min" target="_blank" onClick={() => setIsMobileMenuOpen(false)}>
                             <Button variant="primary" className="w-full rounded-full">

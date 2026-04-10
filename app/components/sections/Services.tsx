@@ -11,7 +11,7 @@ const services = [
         icon: MessageSquare,
         title: "AI Responder",
         subtitle: "Never miss a lead again",
-        description: "Your AI answers every call, DM, and form submission the second it comes in. Nights, weekends, holidays — it never sleeps. Leads get instant replies, quotes go out in minutes, and follow-ups happen automatically.",
+        description: "Your AI answers every call, DM, and form submission the second it comes in. Nights, weekends, holidays - it never sleeps. Leads get instant replies, quotes go out in minutes, and follow-ups happen automatically.",
         features: ["Instant call answering & routing", "Automated quote generation", "Smart follow-up sequences", "Works with your existing tools"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
@@ -20,7 +20,7 @@ const services = [
                         { time: "9:03 AM", msg: "Hi, I need a quote for kitchen remodeling", from: "lead" },
                         { time: "9:03 AM", msg: "Hi! I'd love to help. What's the size of your kitchen? I can get you a quote within minutes.", from: "ai" },
                         { time: "9:04 AM", msg: "About 200 sq ft, modern style", from: "lead" },
-                        { time: "9:04 AM", msg: "Great — I'm putting together your estimate now. Can I book a quick call with our team for tomorrow?", from: "ai" },
+                        { time: "9:04 AM", msg: "Great - I'm putting together your estimate now. Can I book a quick call with our team for tomorrow?", from: "ai" },
                     ].map((message, i) => (
                         <motion.div
                             key={i}
@@ -47,7 +47,7 @@ const services = [
         icon: BarChart3,
         title: "Lead Generation",
         subtitle: "Qualified leads on autopilot",
-        description: "We don't just drive traffic — we build a full pipeline. Outbound campaigns, inbound funnels, and referral systems all wired together. You wake up to booked calls, not empty inboxes.",
+        description: "We don't just drive traffic - we build a full pipeline. Outbound campaigns, inbound funnels, and referral systems all wired together. You wake up to booked calls, not empty inboxes.",
         features: ["Automated outbound campaigns", "Inbound funnel optimization", "Lead scoring & qualification", "Pay only for qualified leads"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
@@ -79,7 +79,7 @@ const services = [
         icon: Bot,
         title: "Admin Automation",
         subtitle: "Reclaim 20+ hours a week",
-        description: "Emails, scheduling, invoicing, follow-ups, data entry — we automate every repetitive task that eats your week. Your operations run on autopilot while you focus on high-value work.",
+        description: "Emails, scheduling, invoicing, follow-ups, data entry - we automate every repetitive task that eats your week. Your operations run on autopilot while you focus on high-value work.",
         features: ["Email & calendar automation", "Invoice generation & sending", "Client onboarding workflows", "Custom integrations with your stack"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
@@ -112,7 +112,7 @@ const services = [
         icon: Globe,
         title: "Website Design",
         subtitle: "Sites that convert, not just look good",
-        description: "Premium websites built to turn visitors into customers. Fast, mobile-first, SEO-ready — designed around your business goals, not a template. Built free, hosted on our infrastructure.",
+        description: "Premium websites built to turn visitors into customers. Fast, mobile-first, SEO-ready - designed around your business goals, not a template. Built free, hosted on our infrastructure.",
         features: ["Conversion-optimized design", "Mobile-first & blazing fast", "SEO-ready from day one", "Free build, we host everything"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
@@ -152,10 +152,10 @@ const services = [
     },
     {
         icon: Search,
-        title: "SEO & ASO",
-        subtitle: "Be found where it matters",
-        description: "We get you ranking on Google and the App Store for the searches your customers actually type. Technical SEO, local SEO, and App Store Optimization — all done in-house, fully integrated with your lead engine.",
-        features: ["Technical & local SEO", "Google Business optimization", "App Store Optimization", "Monthly ranking reports"],
+        title: "AI SEO",
+        subtitle: "Lead conversions by targeting AI answers over links",
+        description: "We get you ranking on Google and AI answers for the searches your customers actually type. AI SEO (GEO, AEO), technical SEO, local SEO, and semantic content optimization - all done in-house, fully integrated with your lead engine.",
+        features: ["GEO & AEO (AI answer optimization)", "SCO (Semantic Content Optimization)", "E-E-A-T signals for AI trust", "ROAS & CRO tracking"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
                 <div className="w-full max-w-sm space-y-3">
@@ -195,7 +195,7 @@ const services = [
         icon: TrendingUp,
         title: "Performance Marketing",
         subtitle: "Ads that actually pay for themselves",
-        description: "Paid ads, landing pages, and conversion tracking — all wired into the same system as your AI responder. Every dollar is tracked, every lead is followed up, nothing slips through the cracks.",
+        description: "Paid ads, landing pages, and conversion tracking - all wired into the same system as your AI responder. Every dollar is tracked, every lead is followed up, nothing slips through the cracks.",
         features: ["Google & Meta ad management", "Custom landing pages", "Full conversion tracking", "Integrated with your lead engine"],
         visual: (
             <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
@@ -249,7 +249,7 @@ export default function Services() {
                         <span className="text-foreground/40">Nothing you don&apos;t.</span>
                     </h2>
                     <p className="text-xl text-foreground/60 max-w-2xl">
-                        Six services. One system. Every piece talks to every other piece —
+                        Six services. One system. Every piece talks to every other piece -
                         so your leads, website, ads, and AI all work together.
                     </p>
                 </motion.div>

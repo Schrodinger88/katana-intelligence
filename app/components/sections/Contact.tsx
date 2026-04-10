@@ -38,15 +38,17 @@ export default function Contact() {
 
                     <p className="text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed">
                         Book a free 15-minute strategy call. We&apos;ll map out exactly
-                        how to automate your biggest time drains — no strings attached.
+                        how to automate your biggest time drains - no strings attached.
                     </p>
 
-                    <Link href="https://cal.com/erwin-peter/15min" target="_blank">
-                        <Button variant="primary" className="h-16 px-12 text-xl rounded-full gap-3 group">
-                            Book Your Free Call
-                            <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-                        </Button>
-                    </Link>
+                    <div className="flex justify-center">
+                        <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                            <Button variant="primary" className="h-16 px-12 text-xl rounded-full gap-3 group">
+                                Book Your Free Call
+                                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                            </Button>
+                        </Link>
+                    </div>
 
                     <p className="text-sm text-foreground/30 mt-8">
                         15 minutes. No sales pitch. Just clarity.

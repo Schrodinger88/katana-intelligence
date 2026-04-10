@@ -9,28 +9,28 @@ const steps = [
         id: "01",
         icon: Phone,
         title: "Free 15-min Audit",
-        description: "We look at where leads leak, which emails eat your evenings, and what your customers Google before calling you. You walk away with a clear picture — whether you hire us or not.",
+        description: "We look at where leads leak, which emails eat your evenings, and what your customers Google before calling you. You walk away with a clear picture - whether you hire us or not.",
         detail: "No sales pitch. Just actionable insights.",
     },
     {
         id: "02",
         icon: FileText,
         title: "Custom System Blueprint",
-        description: "Within 48 hours you get a written plan: the exact automations, website changes, and SEO/ASO levers we'll build — plus projected lead volume and timeline.",
+        description: "Within 48 hours you get a written plan: the exact automations, website changes, and AI SEO levers we'll build - plus projected lead volume and timeline.",
         detail: "You approve every detail before we start.",
     },
     {
         id: "03",
         icon: Rocket,
         title: "Build & Launch in 14 Days",
-        description: "Website, AI responder, lead engine, and tracking — all live within two weeks. We build everything for free. No retainer billed until your first 10 qualified leads land.",
+        description: "Website, AI responder, lead engine, and tracking - all live within two weeks. We build everything for free. No retainer billed until your first 10 qualified leads land.",
         detail: "Zero upfront cost. We eat the risk.",
     },
     {
         id: "04",
         icon: TrendingUp,
         title: "Grow on Autopilot",
-        description: "Weekly optimization on conversion, SEO rankings, and ad performance. You see every metric in one dashboard — no black-box reporting, no guesswork.",
+        description: "Weekly optimization on conversion, SEO rankings, and ad performance. You see every metric in one dashboard - no black-box reporting, no guesswork.",
         detail: "Your system gets smarter every week.",
     },
 ];
@@ -39,8 +39,10 @@ export default function Process() {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"],
+        offset: ["start 80%", "end 40%"],
     });
+
+    const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
         <section id="process" className="py-32 bg-background">
@@ -62,11 +64,11 @@ export default function Process() {
                 </motion.div>
 
                 <div ref={containerRef} className="relative">
-                    {/* Vertical Progress Line */}
-                    <div className="absolute left-[27px] md:left-[31px] top-0 bottom-0 w-px bg-white/10">
+                    {/* Vertical Progress Line - contained within the step icons area */}
+                    <div className="absolute left-[27px] md:left-[31px] top-[28px] md:top-[32px] bottom-[28px] md:bottom-[32px] w-px bg-white/10 overflow-hidden">
                         <motion.div
                             className="w-full bg-primary origin-top"
-                            style={{ height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+                            style={{ height: lineHeight }}
                         />
                     </div>
 
