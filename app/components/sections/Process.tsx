@@ -46,7 +46,6 @@ export default function Process() {
 
     return (
         <section id="process" className="relative overflow-hidden bg-background py-20 md:py-24">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-secondary/10 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -66,7 +65,7 @@ export default function Process() {
 
                 <div ref={containerRef} className="relative">
                     {/* Vertical Progress Line - contained within the step icons area */}
-                    <div className="absolute left-[27px] md:left-[31px] top-[28px] md:top-[32px] bottom-[28px] md:bottom-[32px] w-px bg-white/10 overflow-hidden">
+                    <div className="pointer-events-none absolute left-[27px] top-[28px] bottom-[28px] z-0 w-px overflow-hidden bg-white/10 md:left-[31px] md:top-[32px] md:bottom-[32px]">
                         <motion.div
                             className="w-full bg-primary origin-top"
                             style={{ height: lineHeight }}
@@ -81,10 +80,10 @@ export default function Process() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                                className="relative flex gap-6 md:gap-10 group"
+                                className="group relative z-10 flex gap-6 md:gap-10"
                             >
                                 {/* Step Indicator */}
-                                <div className="flex-shrink-0 relative z-10">
+                                <div className="relative z-20 flex-shrink-0">
                                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-secondary border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500">
                                         <step.icon className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors duration-500" />
                                     </div>

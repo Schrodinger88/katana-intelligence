@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lexend } from "next/font/google";
 import SmoothScrolling from "./components/SmoothScrolling";
 import "./globals.css";
 import {
@@ -10,8 +10,8 @@ import {
   siteUrl,
 } from "@/lib/site";
 
-const inter = Inter({
-  variable: "--font-inter",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
   display: "swap",
 });
@@ -267,7 +267,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} antialiased bg-background text-foreground overflow-x-hidden`}
+        className={`${lexend.variable} antialiased bg-background text-foreground overflow-x-hidden`}
       >
         <SmoothScrolling />
         {children}

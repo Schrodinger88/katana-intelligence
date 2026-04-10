@@ -8,7 +8,6 @@ import { ArrowRight } from "lucide-react";
 export default function Contact() {
     return (
         <section className="relative overflow-hidden bg-background py-20 text-center md:py-24">
-            {/* Animated background glow */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]"

@@ -45,8 +45,28 @@ export default function Founder() {
                                 Erwin Peter
                             </h2>
 
-                            <p className="mb-4 text-sm leading-relaxed text-foreground/42 md:max-w-2xl">
-                                I build the systems behind Katana: automation, websites, lead flow, and AI operations for service businesses.
+                            <div className="mb-4 flex flex-wrap justify-center gap-2 md:justify-start">
+                                <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
+                                    Proudly Canadian
+                                </span>
+                                <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
+                                    English
+                                </span>
+                                <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-foreground/35">
+                                    Francais
+                                </span>
+                            </div>
+
+                            <p className="mb-3 text-sm leading-relaxed text-foreground/50 md:max-w-2xl">
+                                I&apos;m a professional automation workflow specialist with a real passion
+                                for building systems that remove bottlenecks, recover time, and create
+                                cleaner growth for service businesses.
+                            </p>
+
+                            <p className="mb-5 text-sm leading-relaxed text-foreground/38 md:max-w-2xl">
+                                Je suis un specialiste des workflows d&apos;automatisation, fier d&apos;etre
+                                Canadien, et passionne par la creation de systemes utiles, rapides et
+                                solides pour les entreprises de service.
                             </p>
 
                             <Link href="https://cal.com/erwin-peter/15min" target="_blank">

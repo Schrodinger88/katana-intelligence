@@ -83,7 +83,6 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 export default function FAQ() {
     return (
         <section id="faq" className="relative overflow-hidden bg-secondary/30 py-20 md:py-24">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-primary/4 to-transparent" />
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="mb-12 md:mb-14">

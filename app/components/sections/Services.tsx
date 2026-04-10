@@ -253,7 +253,6 @@ export default function Services() {
 
     return (
         <section id="services" className="relative overflow-hidden bg-background py-20 md:py-24">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/8 to-transparent" />
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

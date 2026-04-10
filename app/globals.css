@@ -36,7 +36,7 @@
 
   --color-surface: var(--surface);
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-lexend);
 
   --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -69,7 +69,6 @@ section {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-/* Dark Mode Preference (Apple typically works well in both, but let's stick to Light/Clean for now unless specified) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
