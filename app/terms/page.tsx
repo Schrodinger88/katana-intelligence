@@ -23,7 +23,7 @@ export default function TermsPage() {
                             <p>
                                 These terms govern your use of the Katana Intelligence website and any services
                                 provided by Katana Intelligence (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;),
-                                operated by Erwin Pierre. By booking a call, signing up, or using our services,
+                                operated by Erwin Peter. By booking a call, signing up, or using our services,
                                 you agree to these terms.
                             </p>
                         </section>
@@ -46,7 +46,7 @@ export default function TermsPage() {
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong className="text-foreground">Setup phase:</strong> $0. We build your website, AI responder, automation systems, and lead engine at no cost.</li>
                                 <li><strong className="text-foreground">Free trial period:</strong> No fees are charged until we deliver your first 10 qualified leads.</li>
-                                <li><strong className="text-foreground">Monthly fee:</strong> After the trial threshold, a flat $899/month covers up to 10 qualified leads, plus $25 per additional qualified lead in the same billing cycle.</li>
+                                <li><strong className="text-foreground">Monthly fee:</strong> After the trial threshold, pricing moves to a flat $899/month.</li>
                             </ul>
                             <p className="mt-3">
                                 A &quot;qualified lead&quot; is defined as a real person in your service area who

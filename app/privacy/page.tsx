@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                             <h2 className="text-2xl font-semibold text-foreground mb-3">1. Who we are</h2>
                             <p>
                                 Katana Intelligence (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is an AI automation
-                                agency operated by Erwin Pierre. We build websites, AI responders, lead generation
+                                agency operated by Erwin Peter. We build websites, AI responders, lead generation
                                 systems, and marketing infrastructure for service businesses. This policy explains
                                 how we handle your information when you visit our website, book a call, or become a client.
                             </p>

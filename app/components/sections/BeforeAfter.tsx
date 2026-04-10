@@ -251,6 +251,32 @@ function CallerDemo() {
 
 export default function BeforeAfter() {
     const [showAfter, setShowAfter] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const toggleRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 767px)");
+        const syncMobile = () => setIsMobile(mediaQuery.matches);
+
+        syncMobile();
+        mediaQuery.addEventListener("change", syncMobile);
+
+        return () => mediaQuery.removeEventListener("change", syncMobile);
+    }, []);
+
+    useEffect(() => {
+        if (!showAfter || !isMobile || !toggleRef.current) return;
+
+        window.requestAnimationFrame(() => {
+            const top = toggleRef.current?.getBoundingClientRect().top ?? 0;
+            const offset = 110;
+
+            window.scrollBy({
+                top: top - offset,
+                behavior: "smooth",
+            });
+        });
+    }, [showAfter, isMobile]);
 
     return (
         <section className="relative overflow-hidden bg-secondary/20 py-20 md:py-24">
@@ -271,7 +297,10 @@ export default function BeforeAfter() {
                     </p>
 
                     {/* Toggle */}
-                    <div className="inline-flex items-center bg-secondary/60 border border-white/10 rounded-full p-1">
+                    <div
+                        ref={toggleRef}
+                        className="inline-flex items-center bg-secondary/60 border border-white/10 rounded-full p-1"
+                    >
                         <button
                             onClick={() => setShowAfter(false)}
                             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${

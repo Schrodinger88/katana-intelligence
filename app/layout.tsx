@@ -151,7 +151,7 @@ const jsonLd = {
         price: "899",
         priceCurrency: "USD",
         description:
-          "$0 until first 10 qualified leads. Then $899/month flat + $25 per additional lead.",
+          "$0 until first 10 qualified leads. Then $899/month flat.",
       },
     },
     {

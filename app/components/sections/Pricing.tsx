@@ -69,8 +69,7 @@ export default function Pricing() {
                                 </div>
                                 <p className="text-primary-invert/70 text-sm mb-4">
                                     $0 until we deliver your first <strong>10 qualified leads</strong>.
-                                    After that, a flat <strong>$899/month</strong> covering up to 10 leads,
-                                    plus <strong>$25</strong> per additional lead that same month.
+                                    After that, it moves to a flat <strong>$899/month</strong>.
                                 </p>
                                 <p className="text-primary-invert/80 leading-relaxed">
                                     Built for owner-led service businesses that want a full lead system

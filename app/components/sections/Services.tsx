@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Bot, BarChart3, Globe, MessageSquare, Search, TrendingUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
@@ -233,7 +233,6 @@ const services = [
 export default function Services() {
     const [active, setActive] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-    const activeCardRef = useRef<HTMLDivElement | null>(null);
     const activeService = services[active];
 
     useEffect(() => {
@@ -245,15 +244,6 @@ export default function Services() {
 
         return () => mediaQuery.removeEventListener("change", syncMobile);
     }, []);
-
-    useEffect(() => {
-        if (!isMobile || !activeCardRef.current) return;
-
-        activeCardRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-        });
-    }, [active, isMobile]);
 
     return (
         <section id="services" className="relative overflow-hidden bg-background py-20 md:py-24">
@@ -318,7 +308,7 @@ export default function Services() {
                                 </motion.button>
 
                                 {isMobile && active === index && (
-                                    <div ref={activeCardRef} className="pt-3">
+                                    <div className="pt-3">
                                         <AnimatePresence mode="wait">
                                             <motion.div
                                                 key={`mobile-${active}`}
