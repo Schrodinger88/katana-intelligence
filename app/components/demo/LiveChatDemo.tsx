@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type ChatMessage = {
   id: string;
@@ -16,7 +17,15 @@ const starterMessage: ChatMessage = {
   text: "Hi, I’m the Katana assistant. Ask me about automation, AI SEO, websites, pricing, or growth systems. Je peux aussi répondre en français.",
 };
 
-export default function LiveChatDemo() {
+type LiveChatDemoProps = {
+  className?: string;
+  heightClassName?: string;
+};
+
+export default function LiveChatDemo({
+  className,
+  heightClassName = "h-[420px]",
+}: LiveChatDemoProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([starterMessage]);
   const [input, setInput] = useState("");
   const [isPending, setIsPending] = useState(false);
@@ -101,7 +110,13 @@ export default function LiveChatDemo() {
   }
 
   return (
-    <div className="flex h-[420px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+    <div
+      className={cn(
+        "flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5",
+        heightClassName,
+        className
+      )}
+    >
       <div className="flex items-center gap-2 border-b border-white/8 px-5 py-3">
         <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
         <span className="text-sm font-medium text-foreground/70">

@@ -3,8 +3,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import {
+  ArrowUp,
   ArrowUpRight,
   Check,
+  Command,
+  MessagesSquare,
   MessageSquare,
   Phone,
   PhoneCall,
@@ -108,6 +111,7 @@ const states = {
 
 export default function BeforeAfter() {
   const [showAfter, setShowAfter] = useState(false);
+  const [showStickyChat, setShowStickyChat] = useState(false);
   const activeState = showAfter ? "after" : "before";
   const content = states[activeState];
 
@@ -156,7 +160,14 @@ export default function BeforeAfter() {
                 <button
                   key={state}
                   type="button"
-                  onClick={() => setShowAfter(state === "after")}
+                  onClick={() => {
+                    const nextShowAfter = state === "after";
+                    setShowAfter(nextShowAfter);
+
+                    if (!nextShowAfter) {
+                      setShowStickyChat(false);
+                    }
+                  }}
                   className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 md:px-6 ${
                     selected
                       ? isPositive
@@ -320,25 +331,42 @@ export default function BeforeAfter() {
                   Try the operating model live.
                 </h3>
                 <p className="text-foreground/50">
-                  Chat with the assistant or listen to how the phone agent
-                  handles a real conversation.
+                  The phone agent stays visible here. The chat assistant appears
+                  as a smooth sticky launcher, like documentation support.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
                   transition={{ duration: 0.6 }}
+                  className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6"
                 >
-                  <div className="mb-3 flex items-center gap-2">
-                    <MessageSquare className="h-4 w-4 text-foreground/40" />
+                  <div className="mb-5 flex items-center gap-2">
+                    <MessagesSquare className="h-4 w-4 text-foreground/40" />
                     <span className="text-sm font-medium text-foreground/60">
-                      Live AI Chat
+                      Sticky AI Chat
                     </span>
                   </div>
-                  <LiveChatDemo />
+
+                  <h4 className="max-w-sm text-2xl font-semibold tracking-tight text-foreground">
+                    Ask a question from anywhere on the page.
+                  </h4>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-foreground/55">
+                    When Katana is active, a clean bottom launcher slides in and
+                    opens a support-style chat drawer on demand.
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowStickyChat(true)}
+                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground/70 transition-colors hover:bg-white/[0.07] hover:text-foreground"
+                  >
+                    Open sticky chat
+                    <ArrowUpRight className="h-4 w-4" />
+                  </button>
                 </motion.div>
 
                 <motion.div
@@ -357,6 +385,82 @@ export default function BeforeAfter() {
                 </motion.div>
               </div>
             </motion.div>
+          ) : null}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {showAfter ? (
+            <>
+              <motion.button
+                type="button"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 24 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                onClick={() => setShowStickyChat(true)}
+                className="fixed inset-x-4 bottom-4 z-40 mx-auto flex w-auto max-w-6xl items-center gap-4 rounded-[1.9rem] border border-white/12 bg-[#0b0b0f]/92 px-5 py-4 text-left shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl md:inset-x-6 md:px-7 md:py-5"
+              >
+                <div className="min-w-0 flex-1">
+                  <span className="block truncate text-[clamp(1.25rem,2vw,2rem)] font-medium tracking-tight text-foreground/72">
+                    Ask a question...
+                  </span>
+                </div>
+                <div className="hidden items-center gap-3 text-foreground/28 md:flex">
+                  <div className="flex items-center gap-1 rounded-full border border-white/10 px-2.5 py-1 text-xs">
+                    <Command className="h-3.5 w-3.5" />
+                    I
+                  </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-foreground/70">
+                    <ArrowUp className="h-4 w-4" />
+                  </div>
+                </div>
+              </motion.button>
+
+              <AnimatePresence>
+                {showStickyChat ? (
+                  <>
+                    <motion.button
+                      type="button"
+                      aria-label="Close sticky chat"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      onClick={() => setShowStickyChat(false)}
+                      className="fixed inset-0 z-40 bg-black/45 backdrop-blur-[2px]"
+                    />
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 28, scale: 0.985 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 18, scale: 0.99 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="fixed inset-x-4 bottom-4 z-50 mx-auto w-auto max-w-3xl rounded-[2rem] border border-white/12 bg-[#0b0b0f]/96 p-3 shadow-[0_24px_100px_rgba(0,0,0,0.6)] backdrop-blur-xl md:inset-x-6"
+                    >
+                      <div className="mb-3 flex items-center justify-between px-2 pt-1">
+                        <div>
+                          <p className="text-sm font-medium text-foreground/72">
+                            Katana AI Assistant
+                          </p>
+                          <p className="text-xs text-foreground/38">
+                            Ask about automation, websites, AI SEO, pricing, or
+                            implementation.
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setShowStickyChat(false)}
+                          className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-foreground/55 transition-colors hover:bg-white/[0.05] hover:text-foreground"
+                        >
+                          Close
+                        </button>
+                      </div>
+                      <LiveChatDemo heightClassName="h-[min(70vh,560px)]" />
+                    </motion.div>
+                  </>
+                ) : null}
+              </AnimatePresence>
+            </>
           ) : null}
         </AnimatePresence>
       </div>
