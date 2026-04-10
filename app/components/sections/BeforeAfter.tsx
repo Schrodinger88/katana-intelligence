@@ -1,180 +1,365 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { X, Check, MessageSquare, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  MessageSquare,
+  Phone,
+  PhoneCall,
+  Search,
+  TrendingUp,
+  X,
+} from "lucide-react";
 import LiveChatDemo from "../demo/LiveChatDemo";
 import LiveVoiceDemo from "../demo/LiveVoiceDemo";
 
 const comparisons = [
-    {
-        category: "Lead Response",
-        before: { text: "Missed calls go to voicemail. Leads wait hours - or never hear back.", stat: "~4 hr avg response" },
-        after: { text: "AI answers instantly. Quotes sent in minutes. Follow-ups are automatic.", stat: "< 30 sec response" },
+  {
+    category: "Lead Response",
+    icon: PhoneCall,
+    detail: "First-touch speed",
+    before: {
+      text: "Missed calls go to voicemail. Leads wait hours - or never hear back.",
+      stat: "~4 hr avg response",
     },
-    {
-        category: "Admin Work",
-        before: { text: "Evenings spent on emails, invoices, and scheduling. Weekends too.", stat: "20+ hrs/week wasted" },
-        after: { text: "Automated workflows handle the busywork. You focus on delivery.", stat: "2 hrs/week max" },
+    after: {
+      text: "AI answers instantly. Quotes sent in minutes. Follow-ups are automatic.",
+      stat: "< 30 sec response",
     },
-    {
-        category: "Online Presence",
-        before: { text: "Outdated website. No SEO. Competitors rank above you on Google.", stat: "Page 3+ on Google" },
-        after: { text: "Premium site + AI SEO + local optimization. Customers find you first.", stat: "Top 3 results" },
+  },
+  {
+    category: "Admin Work",
+    icon: MessageSquare,
+    detail: "Back-office load",
+    before: {
+      text: "Evenings spent on emails, invoices, and scheduling. Weekends too.",
+      stat: "20+ hrs/week wasted",
     },
-    {
-        category: "Growth",
-        before: { text: "Word-of-mouth only. Feast-or-famine months. No predictable pipeline.", stat: "Inconsistent leads" },
-        after: { text: "Multi-channel lead engine running 24/7. Predictable, compounding growth.", stat: "30-50 leads/month" },
+    after: {
+      text: "Automated workflows handle the busywork. You focus on delivery.",
+      stat: "2 hrs/week max",
     },
+  },
+  {
+    category: "Online Presence",
+    icon: Search,
+    detail: "Search visibility",
+    before: {
+      text: "Outdated website. No SEO. Competitors rank above you on Google.",
+      stat: "Page 3+ on Google",
+    },
+    after: {
+      text: "Premium site + AI SEO + local optimization. Customers find you first.",
+      stat: "Top 3 results",
+    },
+  },
+  {
+    category: "Growth",
+    icon: TrendingUp,
+    detail: "Pipeline quality",
+    before: {
+      text: "Word-of-mouth only. Feast-or-famine months. No predictable pipeline.",
+      stat: "Inconsistent leads",
+    },
+    after: {
+      text: "Multi-channel lead engine running 24/7. Predictable, compounding growth.",
+      stat: "30-50 leads/month",
+    },
+  },
 ];
 
+const states = {
+  before: {
+    label: "Without Katana",
+    eyebrow: "Current operating reality",
+    title: "The business still runs, but it leaks time, leads, and momentum.",
+    summary:
+      "Manual follow-up, weak search presence, and reactive admin work keep growth inconsistent.",
+    tone:
+      "border-red-500/20 bg-[radial-gradient(circle_at_top,_rgba(127,29,29,0.2),_transparent_55%)]",
+    panel: "bg-red-500/[0.03]",
+    badge: "border-red-500/20 bg-red-500/10 text-red-300",
+    chip: "border-red-500/15 bg-red-500/10 text-red-300",
+    iconWrap: "bg-red-500/12 text-red-300 ring-1 ring-inset ring-red-500/20",
+    stateWrap: "bg-red-500/12 text-red-300",
+    accent: "bg-red-400",
+    points: ["Slow response windows", "Manual admin burden", "Unreliable lead flow"],
+  },
+  after: {
+    label: "With Katana",
+    eyebrow: "Designed operating model",
+    title: "One coordinated system handles response, visibility, and follow-through.",
+    summary:
+      "The same business becomes faster to contact, easier to find, and more predictable to grow.",
+    tone:
+      "border-emerald-500/20 bg-[radial-gradient(circle_at_top,_rgba(6,78,59,0.22),_transparent_58%)]",
+    panel: "bg-emerald-500/[0.03]",
+    badge: "border-emerald-500/20 bg-emerald-500/10 text-emerald-300",
+    chip: "border-emerald-500/15 bg-emerald-500/10 text-emerald-300",
+    iconWrap:
+      "bg-emerald-500/12 text-emerald-300 ring-1 ring-inset ring-emerald-500/20",
+    stateWrap: "bg-emerald-500/12 text-emerald-300",
+    accent: "bg-emerald-400",
+    points: ["Immediate lead handling", "Automated operations", "Compounding growth engine"],
+  },
+} as const;
+
 export default function BeforeAfter() {
-    const [showAfter, setShowAfter] = useState(false);
+  const [showAfter, setShowAfter] = useState(false);
+  const activeState = showAfter ? "after" : "before";
+  const content = states[activeState];
 
-    return (
-        <section className="relative overflow-hidden bg-secondary/20 py-20 md:py-24">
-            <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-12 text-center md:mb-14"
+  return (
+    <section className="relative overflow-hidden bg-black py-20 md:py-24">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute left-[10%] top-24 h-72 w-72 rounded-full bg-primary/6 blur-[120px]" />
+        <div className="absolute right-[8%] bottom-20 h-80 w-80 rounded-full bg-emerald-500/5 blur-[140px]" />
+      </div>
+
+      <div className="container relative mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto mb-12 max-w-3xl text-center md:mb-14"
+        >
+          <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground/45">
+            Operating Comparison
+          </span>
+          <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
+            Same business. Different operating system.
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-foreground/58 md:text-xl">
+            The story stays the same: fewer missed leads, less admin drag, better
+            visibility, and more predictable growth. This section now presents it
+            like a professional service brand, not a generic card grid.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mx-auto mb-8 flex max-w-3xl flex-col items-center gap-4 md:mb-10"
+        >
+          <div className="inline-flex rounded-full border border-white/10 bg-white/[0.04] p-1">
+            {(["before", "after"] as const).map((state) => {
+              const selected = activeState === state;
+              const isPositive = state === "after";
+
+              return (
+                <button
+                  key={state}
+                  type="button"
+                  onClick={() => setShowAfter(state === "after")}
+                  className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 md:px-6 ${
+                    selected
+                      ? isPositive
+                        ? "bg-emerald-500/16 text-emerald-200 shadow-[inset_0_0_0_1px_rgba(16,185,129,0.22)]"
+                        : "bg-red-500/16 text-red-200 shadow-[inset_0_0_0_1px_rgba(239,68,68,0.22)]"
+                      : "text-foreground/38 hover:text-foreground/65"
+                  }`}
                 >
-                    <h2 className="mb-5 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
-                        See the difference.
-                    </h2>
-                    <p className="mx-auto mb-8 max-w-2xl text-lg text-foreground/60 md:mb-10 md:text-xl">
-                        What changes when your business runs on Katana.
-                    </p>
+                  {states[state].label}
+                </button>
+              );
+            })}
+          </div>
 
-                    {/* Toggle */}
-                    <div className="inline-flex items-center bg-secondary/60 border border-white/10 rounded-full p-1">
-                        <button
-                            onClick={() => setShowAfter(false)}
-                            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                                !showAfter
-                                    ? "bg-red-500/20 text-red-400 shadow-sm"
-                                    : "text-foreground/40 hover:text-foreground/60"
-                            }`}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeState}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22 }}
+              className="text-center text-sm text-foreground/45"
+            >
+              {content.summary}
+            </motion.p>
+          </AnimatePresence>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className={`mx-auto max-w-6xl overflow-hidden rounded-[2rem] border bg-white/[0.025] backdrop-blur-sm transition-colors duration-500 ${content.tone}`}
+        >
+          <div className="grid lg:grid-cols-[320px_minmax(0,1fr)]">
+            <div className="border-b border-white/8 p-6 lg:border-r lg:border-b-0 lg:p-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeState}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.28 }}
+                >
+                  <span
+                    className={`mb-5 inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] ${content.badge}`}
+                  >
+                    {content.eyebrow}
+                  </span>
+
+                  <h3 className="max-w-xs text-2xl font-semibold leading-tight text-foreground md:text-[2rem]">
+                    {content.title}
+                  </h3>
+
+                  <div className="mt-8 space-y-3">
+                    {content.points.map((point) => (
+                      <div
+                        key={point}
+                        className="flex items-center gap-3 border-b border-white/6 pb-3 last:border-b-0 last:pb-0"
+                      >
+                        <span className={`h-2.5 w-2.5 rounded-full ${content.accent}`} />
+                        <span className="text-sm text-foreground/62">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className={content.panel}>
+              {comparisons.map((item, index) => {
+                const row = item[activeState];
+
+                return (
+                  <motion.div
+                    key={item.category}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    className="grid gap-5 border-b border-white/8 px-6 py-6 last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)_auto] md:items-start md:px-8"
+                  >
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`flex h-11 w-11 items-center justify-center rounded-2xl ${content.iconWrap}`}
                         >
-                            Without Katana
-                        </button>
-                        <button
-                            onClick={() => setShowAfter(true)}
-                            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                                showAfter
-                                    ? "bg-green-500/20 text-green-400 shadow-sm"
-                                    : "text-foreground/40 hover:text-foreground/60"
-                            }`}
-                        >
-                            With Katana
-                        </button>
+                          <item.icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/35">
+                            {item.detail}
+                          </p>
+                          <h4 className="text-lg font-medium text-foreground">
+                            {item.category}
+                          </h4>
+                        </div>
+                      </div>
                     </div>
+
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${item.category}-${activeState}`}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.24 }}
+                        className="max-w-2xl"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div
+                            className={`mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full ${content.stateWrap}`}
+                          >
+                            {activeState === "after" ? (
+                              <Check className="h-3.5 w-3.5" />
+                            ) : (
+                              <X className="h-3.5 w-3.5" />
+                            )}
+                          </div>
+                          <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
+                            {row.text}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+
+                    <div className="flex items-center md:justify-end">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={`${row.stat}-${activeState}`}
+                          initial={{ opacity: 0, scale: 0.96 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.96 }}
+                          transition={{ duration: 0.22 }}
+                          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium ${content.chip}`}
+                        >
+                          {row.stat}
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
+
+        <AnimatePresence>
+          {showAfter ? (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mx-auto mt-12 max-w-5xl md:mt-16"
+            >
+              <div className="mb-8 text-center md:mb-10">
+                <h3 className="mb-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                  Try the operating model live.
+                </h3>
+                <p className="text-foreground/50">
+                  Chat with the assistant or listen to how the phone agent
+                  handles a real conversation.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4 text-foreground/40" />
+                    <span className="text-sm font-medium text-foreground/60">
+                      Live AI Chat
+                    </span>
+                  </div>
+                  <LiveChatDemo />
                 </motion.div>
 
-                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-                    {comparisons.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className={`rounded-[2rem] border p-6 transition-all duration-500 md:p-8 ${
-                                showAfter
-                                    ? "bg-green-500/5 border-green-500/10"
-                                    : "bg-red-500/5 border-red-500/10"
-                            }`}
-                        >
-                            <span className="text-xs font-bold text-foreground/30 tracking-widest mb-4 block uppercase">
-                                {item.category}
-                            </span>
-
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={showAfter ? "after" : "before"}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <div className="flex items-start gap-3 mb-4">
-                                        {showAfter ? (
-                                            <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <Check className="w-3.5 h-3.5 text-green-400" />
-                                            </div>
-                                        ) : (
-                                            <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <X className="w-3.5 h-3.5 text-red-400" />
-                                            </div>
-                                        )}
-                                        <p className="text-base leading-relaxed text-foreground/70 md:text-lg">
-                                            {showAfter ? item.after.text : item.before.text}
-                                        </p>
-                                    </div>
-                                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                                        showAfter
-                                            ? "bg-green-500/10 text-green-400"
-                                            : "bg-red-500/10 text-red-400"
-                                    }`}>
-                                        {showAfter ? item.after.stat : item.before.stat}
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* AI Demo Section */}
-                <AnimatePresence>
-                    {showAfter ? (
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="mx-auto mt-12 max-w-5xl md:mt-16"
-                        >
-                            <div className="mb-8 text-center md:mb-10">
-                                <h3 className="mb-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-                                    Try it yourself.
-                                </h3>
-                                <p className="text-foreground/50">
-                                    Chat with our AI or hear how it handles a phone call live.
-                                </p>
-                            </div>
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -10 }}
-                                    transition={{ duration: 0.6 }}
-                                >
-                                    <div className="mb-3 flex items-center gap-2">
-                                        <MessageSquare className="h-4 w-4 text-foreground/40" />
-                                        <span className="text-sm font-medium text-foreground/60">Live AI Chat</span>
-                                    </div>
-                                    <LiveChatDemo />
-                                </motion.div>
-                                <motion.div
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 10 }}
-                                    transition={{ duration: 0.6, delay: 0.05 }}
-                                >
-                                    <div className="mb-3 flex items-center gap-2">
-                                        <Phone className="h-4 w-4 text-foreground/40" />
-                                        <span className="text-sm font-medium text-foreground/60">Live Voice Agent</span>
-                                    </div>
-                                    <LiveVoiceDemo />
-                                </motion.div>
-                            </div>
-                        </motion.div>
-                    ) : null}
-                </AnimatePresence>
-            </div>
-        </section>
-    );
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.6, delay: 0.05 }}
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-foreground/40" />
+                    <span className="text-sm font-medium text-foreground/60">
+                      Live Voice Agent
+                    </span>
+                  </div>
+                  <LiveVoiceDemo />
+                </motion.div>
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 }

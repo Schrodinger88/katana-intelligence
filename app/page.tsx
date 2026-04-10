@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/sections/Hero";
 import Services from "./components/sections/Services";
-import WhoWeHelp from "./components/sections/WhoWeHelp";
 import BeforeAfter from "./components/sections/BeforeAfter";
 import Process from "./components/sections/Process";
 import Founder from "./components/sections/Founder";
@@ -12,10 +11,9 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen selection:bg-primary selection:text-black">
+      <main className="bg-black min-h-screen selection:bg-primary selection:text-black">
       <Navbar />
       <Hero />
-      <WhoWeHelp />
       <Services />
       <BeforeAfter />
       <Process />

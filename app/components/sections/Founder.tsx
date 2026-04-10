@@ -64,8 +64,7 @@ export default function Founder() {
                             </p>
 
                             <p className="mb-5 text-sm leading-relaxed text-foreground/38 md:max-w-2xl">
-                                Je suis un specialiste des workflows d&apos;automatisation, fier d&apos;etre
-                                Canadien, et passionne par la creation de systemes utiles, rapides et
+                                Je conçois des systèmes d&apos;automatisation utiles, rapides et
                                 solides pour les entreprises de service.
                             </p>
 
