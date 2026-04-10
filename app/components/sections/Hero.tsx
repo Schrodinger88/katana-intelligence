@@ -48,9 +48,9 @@ export default function Hero() {
                 <h1 className="mx-auto max-w-5xl text-center text-4xl font-semibold leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-7xl lg:text-8xl text-balance">
                     We build your growth engine.
                 </h1>
-                <h1 className="mx-auto mb-8 max-w-4xl text-center text-4xl font-semibold leading-[1.05] tracking-tight text-foreground/40 sm:text-5xl md:mb-10 md:text-7xl lg:text-8xl text-balance">
+                <p className="mx-auto mb-8 max-w-4xl text-center text-4xl font-semibold leading-[1.05] tracking-tight text-foreground/40 sm:text-5xl md:mb-10 md:text-7xl lg:text-8xl text-balance">
                     You focus on the work.
-                </h1>
+                </p>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -82,6 +82,12 @@ export default function Hero() {
                         See How It Works
                     </Button>
                 </motion.div>
+
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-foreground/42">
+                    <span>AI automation agency</span>
+                    <span>Lead generation for service businesses</span>
+                    <span>AI SEO, GEO, and AEO</span>
+                </div>
             </motion.div>
 
             {/* Scroll indicator */}

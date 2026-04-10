@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SmoothScrolling from "./components/SmoothScrolling";
 import "./globals.css";
+import {
+  bookingUrl,
+  contactEmail,
+  founderName,
+  siteName,
+  siteUrl,
+} from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,14 +16,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://katanaintelligence.com";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "Katana Intelligence",
+  applicationName: siteName,
   title: {
-    default: "Katana Intelligence | AI Automation, Lead Generation & SEO for Service Businesses",
-    template: "%s | Katana Intelligence",
+    default:
+      "Katana Intelligence | AI Automation, Lead Generation & SEO for Service Businesses",
+    template: `%s | ${siteName}`,
   },
   description:
     "Katana Intelligence builds AI-powered automation systems, websites, lead generation engines, and AI SEO for service businesses. Free setup — you only pay for qualified leads. Book a free strategy call.",
@@ -39,9 +45,9 @@ export const metadata: Metadata = {
     "local SEO",
     "small business automation",
   ],
-  authors: [{ name: "Erwin Peter", url: siteUrl }],
-  creator: "Katana Intelligence",
-  publisher: "Katana Intelligence",
+  authors: [{ name: founderName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
   formatDetection: {
     email: false,
     address: false,
@@ -62,8 +68,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Katana Intelligence",
-    title: "Katana Intelligence | AI Automation & Lead Generation for Service Businesses",
+    siteName,
+    title:
+      "Katana Intelligence | AI Automation & Lead Generation for Service Businesses",
     description:
       "AI-powered growth engine for service businesses. We build your website, AI responder, lead generation, SEO, and marketing — all for free. You only pay for qualified leads.",
     images: [
@@ -87,6 +94,9 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   category: "technology",
+  verification: {
+    google: undefined,
+  },
 };
 
 // JSON-LD Structured Data
@@ -96,7 +106,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "Katana Intelligence",
+      name: siteName,
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
@@ -104,7 +114,7 @@ const jsonLd = {
       },
       founder: {
         "@type": "Person",
-        name: "Erwin Peter",
+        name: founderName,
         jobTitle: "Founder",
         url: "https://x.com/ErwinPeter88",
       },
@@ -117,15 +127,15 @@ const jsonLd = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "erwin@katanaintelligence.com",
-        url: "https://cal.com/erwin-peter/15min",
+        email: contactEmail,
+        url: bookingUrl,
       },
     },
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "Katana Intelligence",
+      name: siteName,
       publisher: { "@id": `${siteUrl}/#organization` },
     },
     {
@@ -202,7 +212,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}/#business`,
-      name: "Katana Intelligence",
+      name: siteName,
       url: siteUrl,
       image: `${siteUrl}/opengraph-image`,
       description:
@@ -213,7 +223,7 @@ const jsonLd = {
       },
       founder: {
         "@type": "Person",
-        name: "Erwin Peter",
+        name: founderName,
       },
       sameAs: [
         "https://x.com/ErwinPeter88",
@@ -223,6 +233,22 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: { "@id": `${siteUrl}/#service` },
       },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#services`,
+      itemListElement: [
+        "ai-responder",
+        "lead-generation",
+        "admin-automation",
+        "website-design",
+        "ai-seo",
+        "performance-marketing",
+      ].map((slug, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${siteUrl}/services/${slug}`,
+      })),
     },
   ],
 };

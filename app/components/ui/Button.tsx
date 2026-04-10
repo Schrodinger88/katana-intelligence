@@ -8,14 +8,12 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
     children: ReactNode;
     variant?: "primary" | "secondary" | "outline" | "ghost";
     className?: string;
-    href?: string;
 }
 
 export default function Button({
     children,
     variant = "primary",
     className,
-    href,
     ...props
 }: ButtonProps) {
     const baseStyles =
@@ -32,9 +30,6 @@ export default function Button({
     };
 
     const Component = motion.button;
-
-    // We are handling navigation in the parent usually, but if href is passed we could wrap it.
-    // For now simple button.
 
     return (
         <Component

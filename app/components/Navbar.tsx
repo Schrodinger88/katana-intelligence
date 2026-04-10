@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
@@ -15,6 +16,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+    const pathname = usePathname();
+    const router = useRouter();
     const [hidden, setHidden] = useState(false);
     const { scrollY } = useScroll();
     const [lastY, setLastY] = useState(0);
@@ -32,6 +35,10 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const scrollTo = (href: string) => {
+        if (pathname !== "/") {
+            router.push(`/${href}`);
+            return;
+        }
         const id = href.replace("#", "");
         const el = document.getElementById(id);
         if (el) {

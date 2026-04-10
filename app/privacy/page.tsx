@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { siteUrl } from "@/lib/site";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Privacy Policy - Katana Intelligence",
     description: "How Katana Intelligence collects, uses, and protects your data.",
+    alternates: {
+        canonical: `${siteUrl}/privacy`,
+    },
 };
 
 export default function PrivacyPage() {

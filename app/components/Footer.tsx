@@ -1,12 +1,22 @@
 "use client";
 
 import Link from "next/link";
-
-function scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
+import { usePathname, useRouter } from "next/navigation";
+import { servicePages } from "@/lib/site";
 
 export default function Footer() {
+    const pathname = usePathname();
+    const router = useRouter();
+
+    function scrollTo(id: string) {
+        if (pathname !== "/") {
+            router.push(`/#${id}`);
+            return;
+        }
+
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+
     return (
         <footer className="relative overflow-hidden border-t border-white/10 bg-[linear-gradient(180deg,rgba(8,10,10,0.92)_0%,rgba(23,28,27,0.96)_38%,rgba(48,58,56,1)_100%)] py-16">
             <div className="pointer-events-none absolute inset-0">
@@ -32,16 +42,19 @@ export default function Footer() {
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">Services</h4>
                             <ul className="space-y-3 text-foreground/60">
-                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Admin Automation</button></li>
-                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Lead Generation</button></li>
-                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Website Design</button></li>
-                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">AI SEO</button></li>
-                                <li><button onClick={() => scrollTo("services")} className="hover:text-foreground transition-colors">Performance Marketing</button></li>
+                                {servicePages.map((service) => (
+                                    <li key={service.slug}>
+                                        <Link href={`/services/${service.slug}`} className="hover:text-foreground transition-colors">
+                                            {service.shortName}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">Company</h4>
                             <ul className="space-y-3 text-foreground/60">
+                                <li><Link href="/services" className="hover:text-foreground transition-colors">All Services</Link></li>
                                 <li><button onClick={() => scrollTo("process")} className="hover:text-foreground transition-colors">How It Works</button></li>
                                 <li><button onClick={() => scrollTo("pricing")} className="hover:text-foreground transition-colors">Pricing</button></li>
                                 <li><button onClick={() => scrollTo("faq")} className="hover:text-foreground transition-colors">FAQ</button></li>

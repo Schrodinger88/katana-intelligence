@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { siteUrl } from "@/lib/site";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Terms of Service - Katana Intelligence",
     description: "The terms under which Katana Intelligence provides its services.",
+    alternates: {
+        canonical: `${siteUrl}/terms`,
+    },
 };
 
 export default function TermsPage() {

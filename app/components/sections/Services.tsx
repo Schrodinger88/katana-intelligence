@@ -8,6 +8,7 @@ import Button from "../ui/Button";
 
 const services = [
     {
+        slug: "ai-responder",
         icon: MessageSquare,
         title: "AI Responder",
         subtitle: "Never miss a lead again",
@@ -44,6 +45,7 @@ const services = [
         ),
     },
     {
+        slug: "lead-generation",
         icon: BarChart3,
         title: "Lead Generation",
         subtitle: "Qualified leads on autopilot",
@@ -76,6 +78,7 @@ const services = [
         ),
     },
     {
+        slug: "admin-automation",
         icon: Bot,
         title: "Admin Automation",
         subtitle: "Reclaim 20+ hours a week",
@@ -109,6 +112,7 @@ const services = [
         ),
     },
     {
+        slug: "website-design",
         icon: Globe,
         title: "Website Design",
         subtitle: "Sites that convert, not just look good",
@@ -151,6 +155,7 @@ const services = [
         ),
     },
     {
+        slug: "ai-seo",
         icon: Search,
         title: "AI SEO",
         subtitle: "Lead conversions by targeting AI answers over links",
@@ -192,6 +197,7 @@ const services = [
         ),
     },
     {
+        slug: "performance-marketing",
         icon: TrendingUp,
         title: "Performance Marketing",
         subtitle: "Ads that actually pay for themselves",
@@ -341,12 +347,19 @@ export default function Services() {
                                                     ))}
                                                 </div>
 
-                                                <Link href="https://cal.com/erwin-peter/15min" target="_blank">
-                                                    <Button variant="outline" className="h-11 rounded-full px-6 text-sm gap-2 group">
-                                                        Learn more on a call
-                                                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                                    </Button>
-                                                </Link>
+                                                <div className="flex flex-wrap gap-3">
+                                                    <Link href={`/services/${activeService.slug}`}>
+                                                        <Button variant="outline" className="h-11 rounded-full px-6 text-sm gap-2 group">
+                                                            View service page
+                                                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                                        </Button>
+                                                    </Link>
+                                                    <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                                                        <Button variant="ghost" className="h-11 rounded-full px-4 text-sm gap-2">
+                                                            Book a strategy call
+                                                        </Button>
+                                                    </Link>
+                                                </div>
                                             </motion.div>
                                         </AnimatePresence>
                                     </div>
@@ -392,12 +405,19 @@ export default function Services() {
                                     ))}
                                 </div>
 
-                                <Link href="https://cal.com/erwin-peter/15min" target="_blank">
-                                    <Button variant="outline" className="rounded-full h-11 px-6 text-sm gap-2 group">
-                                        Learn more on a call
-                                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                                    </Button>
-                                </Link>
+                                <div className="flex flex-wrap gap-3">
+                                    <Link href={`/services/${activeService.slug}`}>
+                                        <Button variant="outline" className="rounded-full h-11 px-6 text-sm gap-2 group">
+                                            View service page
+                                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                        </Button>
+                                    </Link>
+                                    <Link href="https://cal.com/erwin-peter/15min" target="_blank">
+                                        <Button variant="ghost" className="rounded-full h-11 px-4 text-sm gap-2">
+                                            Book a strategy call
+                                        </Button>
+                                    </Link>
+                                </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
