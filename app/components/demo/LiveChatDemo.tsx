@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type ChatMessage = {
@@ -16,13 +16,6 @@ const starterMessage: ChatMessage = {
   from: "ai",
   text: "Hi, I’m the Katana assistant. Ask about automation, websites, AI SEO, pricing, implementation, or test how this would work for your business. Je peux aussi répondre en français.",
 };
-
-const promptSuggestions = [
-  "How would this work for my business?",
-  "What would you automate first?",
-  "How does Katana improve SEO?",
-  "What does pricing look like?",
-];
 
 type LiveChatDemoProps = {
   className?: string;
@@ -116,14 +109,6 @@ export default function LiveChatDemo({
     }
   }
 
-  function applyPrompt(prompt: string) {
-    if (isPending) {
-      return;
-    }
-
-    setInput(prompt);
-  }
-
   return (
     <div
       className={cn(
@@ -147,18 +132,6 @@ export default function LiveChatDemo({
           Ask about automation, websites, AI SEO, pricing, implementation, or
           test it out for your business.
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {promptSuggestions.map((prompt) => (
-            <button
-              key={prompt}
-              type="button"
-              onClick={() => applyPrompt(prompt)}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-foreground/62 transition-colors hover:bg-white/[0.06] hover:text-foreground"
-            >
-              {prompt}
-            </button>
-          ))}
-        </div>
       </div>
 
       <div ref={messagesContainerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
@@ -211,9 +184,9 @@ export default function LiveChatDemo({
           <button
             type="submit"
             disabled={isPending}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 transition-colors hover:bg-primary/30 disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-invert transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <Send className="h-4 w-4 text-primary" />
+            <ArrowUp className="h-4 w-4" />
           </button>
         </div>
       </form>

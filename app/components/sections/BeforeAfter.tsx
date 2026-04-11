@@ -166,18 +166,9 @@ export default function BeforeAfter() {
             })}
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={activeState}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22 }}
-              className="text-center text-sm text-foreground/45"
-            >
-              {content.summary}
-            </motion.p>
-          </AnimatePresence>
+          <p className="text-center text-sm text-foreground/45">
+            {content.summary}
+          </p>
         </motion.div>
 
         <motion.div
@@ -189,13 +180,11 @@ export default function BeforeAfter() {
         >
           <div className="grid lg:grid-cols-[320px_minmax(0,1fr)]">
             <div className="border-b border-white/8 p-6 lg:border-r lg:border-b-0 lg:p-8">
-              <AnimatePresence mode="wait">
                 <motion.div
                   key={activeState}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.28 }}
+                  initial={false}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.18 }}
                 >
                   <span
                     className={`mb-5 inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] ${content.badge}`}
@@ -219,20 +208,15 @@ export default function BeforeAfter() {
                     ))}
                   </div>
                 </motion.div>
-              </AnimatePresence>
             </div>
 
             <div>
-              {comparisons.map((item, index) => {
+              {comparisons.map((item) => {
                 const row = item[activeState];
 
                 return (
                   <motion.div
                     key={item.category}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.45, delay: index * 0.08 }}
                     className="grid gap-5 border-b border-white/8 px-6 py-6 last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)_auto] md:items-start md:px-8"
                   >
                     <div>
@@ -253,46 +237,40 @@ export default function BeforeAfter() {
                       </div>
                     </div>
 
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={`${item.category}-${activeState}`}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.24 }}
-                        className="max-w-2xl"
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={`mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full ${content.stateWrap}`}
-                          >
-                            {activeState === "after" ? (
-                              <Check className="h-3.5 w-3.5" />
-                            ) : (
-                              <X className="h-3.5 w-3.5" />
-                            )}
-                          </div>
-                          <p className="text-base leading-relaxed text-foreground/68 md:text-lg">
-                            {row.text}
-                          </p>
+                    <motion.div
+                      key={`${item.category}-${activeState}`}
+                      initial={false}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.18 }}
+                      className="max-w-2xl"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div
+                          className={`mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full ${content.stateWrap}`}
+                        >
+                          {activeState === "after" ? (
+                            <Check className="h-3.5 w-3.5" />
+                          ) : (
+                            <X className="h-3.5 w-3.5" />
+                          )}
                         </div>
-                      </motion.div>
-                    </AnimatePresence>
+                        <p className="text-base leading-relaxed text-foreground/68 md:text-lg">
+                          {row.text}
+                        </p>
+                      </div>
+                    </motion.div>
 
                     <div className="flex items-center md:justify-end">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={`${row.stat}-${activeState}`}
-                          initial={{ opacity: 0, scale: 0.96 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.96 }}
-                          transition={{ duration: 0.22 }}
-                          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium ${content.chip}`}
-                        >
-                          {row.stat}
-                          <ArrowUpRight className="h-3.5 w-3.5" />
-                        </motion.div>
-                      </AnimatePresence>
+                      <motion.div
+                        key={`${row.stat}-${activeState}`}
+                        initial={false}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.18 }}
+                        className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium ${content.chip}`}
+                      >
+                        {row.stat}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </motion.div>
                     </div>
                   </motion.div>
                 );
@@ -323,20 +301,20 @@ export default function BeforeAfter() {
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.6 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.24 }}
                   className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-3"
                 >
                   <LiveChatDemo heightClassName="h-[560px]" />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.6, delay: 0.05 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.24, delay: 0.04 }}
                 >
                   <div className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6">
                     <div className="mb-3 flex items-center gap-2">
