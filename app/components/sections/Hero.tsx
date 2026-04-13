@@ -41,15 +41,15 @@ export default function Hero() {
                     className="mb-8"
                 >
                     <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-foreground/60 text-sm font-medium tracking-tight border border-white/10">
-                        AI-powered growth for service businesses
+                        AI automation that actually delivers
                     </span>
                 </motion.div>
 
                 <h1 className="mx-auto max-w-5xl text-center text-4xl font-semibold leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-7xl lg:text-8xl text-balance">
-                    We build your growth engine.
+                    We don&apos;t just talk AI.
                 </h1>
                 <p className="mx-auto mb-8 max-w-4xl text-center text-4xl font-semibold leading-[1.05] tracking-tight text-foreground/40 sm:text-5xl md:mb-10 md:text-7xl lg:text-8xl text-balance">
-                    You focus on the work.
+                    We deliver it.
                 </p>
 
                 <motion.p
@@ -58,8 +58,8 @@ export default function Hero() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-foreground/60 md:mb-12 md:text-xl"
                 >
-                    Website, AI responder, lead generation, SEO, and marketing - all built for free.
-                    You only pay when we deliver real, qualified leads.
+                    We help businesses identify AI opportunities that will actually transform their operations,
+                    then we build it, deploy it, and train your team to use it. You only pay for results.
                 </motion.p>
 
                 <motion.div
@@ -70,7 +70,7 @@ export default function Hero() {
                 >
                     <Link href="https://cal.com/erwin-peter/15min" target="_blank">
                         <Button variant="primary" className="h-14 px-10 text-lg rounded-full gap-2 group">
-                            Book a Free Call
+                            Get in Touch
                             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Button>
                     </Link>
@@ -84,9 +84,10 @@ export default function Hero() {
                 </motion.div>
 
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-foreground/42">
-                    <span>AI automation agency</span>
-                    <span>Lead generation for service businesses</span>
-                    <span>AI SEO, GEO, and AEO</span>
+                    <span>AI Automation</span>
+                    <span>Custom AI Solutions</span>
+                    <span>Workflow Optimization</span>
+                    <span>Team Training</span>
                 </div>
             </motion.div>
 

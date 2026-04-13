@@ -1,8 +1,11 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/sections/Hero";
+import ProblemStatement from "./components/sections/ProblemStatement";
+import SocialProof from "./components/sections/SocialProof";
 import Services from "./components/sections/Services";
 import BeforeAfter from "./components/sections/BeforeAfter";
 import Process from "./components/sections/Process";
+import Testimonials from "./components/sections/Testimonials";
 import Founder from "./components/sections/Founder";
 import Pricing from "./components/sections/Pricing";
 import FAQ from "./components/sections/FAQ";
@@ -14,9 +17,12 @@ export default function Home() {
       <main className="bg-black min-h-screen selection:bg-primary selection:text-black">
       <Navbar />
       <Hero />
+      <ProblemStatement />
+      <SocialProof />
       <Services />
       <BeforeAfter />
       <Process />
+      <Testimonials />
       <Pricing />
       <FAQ />
       <Contact />

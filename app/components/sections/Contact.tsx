@@ -27,30 +27,31 @@ export default function Contact() {
                     <motion.h2
                         className="mb-4 text-4xl font-semibold tracking-tight text-foreground md:text-7xl text-balance"
                     >
-                        Ready to stop
+                        AI is here.
                     </motion.h2>
                     <motion.h2
                         className="mb-8 text-4xl font-semibold tracking-tight text-foreground/40 md:text-7xl text-balance"
                     >
-                        doing it all yourself?
+                        Most will react. The few with a plan will lead.
                     </motion.h2>
 
                     <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-foreground/60 md:mb-12 md:text-xl">
-                        Book a free 15-minute strategy call. We&apos;ll map out exactly
-                        how to automate your biggest time drains - no strings attached.
+                        We build for those few. Tell us where you&apos;re losing time,
+                        and we&apos;ll show you exactly what&apos;s worth automating -
+                        no pitch, just clarity.
                     </p>
 
                     <div className="flex justify-center">
                         <Link href="https://cal.com/erwin-peter/15min" target="_blank">
                             <Button variant="primary" className="h-16 px-12 text-xl rounded-full gap-3 group">
-                                Book Your Free Call
+                                Get in Touch
                                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
                             </Button>
                         </Link>
                     </div>
 
                     <p className="text-sm text-foreground/30 mt-8">
-                        15 minutes. No sales pitch. Just clarity.
+                        The next move is yours. We&apos;ll take it from there.
                     </p>
                 </motion.div>
             </div>

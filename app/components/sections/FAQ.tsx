@@ -6,36 +6,36 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
     {
-        question: "What kind of businesses do you work with?",
-        answer: "We work with service-based businesses, agencies, consultants, and SMBs that are spending too much time on admin, struggling with inconsistent leads, or need a better web presence. If you're doing repetitive work that a system could handle, we can help."
+        question: "How is Katana different from every other AI company?",
+        answer: "We're workflow specialists first, AI specialists second. We start by understanding how your teams actually work, then reimagine what's possible with AI - without pushing any single tool or platform. We are tool-agnostic, industry-agnostic, but results-obsessed."
     },
     {
-        question: "How long does it take to see results?",
-        answer: "Most clients see their first automations live within 2 weeks. Lead generation systems typically show measurable results within 30 days. Website projects are delivered in 3-4 weeks."
+        question: "We've already tried AI and it didn't work. Why would this be different?",
+        answer: "Most teams fail because they start with the wrong use cases or stop at the prototype. We focus only on what's worth building and stay through adoption - so it actually ships, gets used, and delivers measurable results."
     },
     {
-        question: "Do I need to be technical?",
-        answer: "Not at all. Everything is done-for-you. We handle the building, integration, and maintenance. You just tell us what's slowing you down, and we fix it."
+        question: "How do I know if we're ready for AI?",
+        answer: "You're ready if you have clear pain points, repetitive work, or untapped data slowing things down. We'll help you figure out what's worth automating - and what's not. Every engagement starts with clarity, not assumptions."
     },
     {
-        question: "What counts as a \"qualified lead\"?",
-        answer: "A real person in your service area who requested a quote, booked a call, or explicitly asked about your services. Bots, spam submissions, duplicates, and out-of-area inquiries don't count. We define this in writing before we start so there's no argument later."
+        question: "We don't have clean data or a big tech team - can we still do this?",
+        answer: "Yes. We work with what you have, design around your existing systems, and handle the technical lift. You don't need a data team or a tech stack overhaul to get started."
     },
     {
-        question: "Do you handle AI SEO and marketing too?",
-        answer: "Yes - it's all included. I handle AI SEO (GEO, AEO), semantic content optimization, E-E-A-T signals, and performance marketing (paid ads, landing pages, conversion tracking). Everything is wired into the same system as your AI responder, so every lead source is measurable in one place."
+        question: "How long until we see real results?",
+        answer: "You'll typically see a working pilot within weeks, not months. We move fast, test early, and scale only once it's proven. Most clients see their first automations live within 14 days."
+    },
+    {
+        question: "How much internal time will this take?",
+        answer: "We know you hired us to get things off your team's plate. We keep your team's involvement focused and efficient - just enough to capture what matters, then we do the rest."
+    },
+    {
+        question: "What happens after you deliver?",
+        answer: "We don't hand off and vanish. We train your people, monitor how it's used, and refine until it runs smoothly without us. Adoption is where most AI projects die - we make sure yours doesn't."
     },
     {
         question: "What tools and platforms do you use?",
         answer: "We use a mix of AI tools, n8n, Make, custom APIs, and platforms like Slack, HubSpot, Gmail, and Calendly - whatever fits your existing stack. We adapt to your tools, not the other way around."
-    },
-    {
-        question: "Can I cancel anytime?",
-        answer: "Yes. There are no long-term contracts. We work on a month-to-month basis because we believe our results should keep you around, not a contract."
-    },
-    {
-        question: "What happens during the free strategy call?",
-        answer: "We'll spend 15 minutes understanding your business, identifying your biggest time drains, and mapping out exactly how automation can help. No sales pitch - just actionable insights you can use whether you hire us or not."
     },
 ];
 
