@@ -22,7 +22,7 @@ const steps = [
     {
         id: "03",
         icon: Rocket,
-        title: "Build & Launch in 14 Days",
+        title: "Build & Launch in 3 Days",
         description: "Website, AI responder, lead engine, and tracking - all live within two weeks. We build everything for free. No retainer billed until your first 10 qualified leads land.",
         detail: "Zero upfront cost. We eat the risk.",
     },
